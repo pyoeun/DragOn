@@ -55,8 +55,6 @@ public class Choice : MonoBehaviour
                     }
                 }
             }
-            
-            
         }
     }
     public static void ChoiceD()

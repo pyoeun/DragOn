@@ -35,8 +35,15 @@ public class Choice_Dragon : MonoBehaviour
                 {
                     for (int i = 0; i < dragonArr.Length; i++)
                     {
-                        if (selectedObj == dragonArr[i])
-                            MainSingleton.dragon = i + 1;
+                        if (selectedObj.GetComponent<Dragon>().DragonName == dragonArr[i].name)
+                        {
+                            if (i == 0) MainSingleton.dragon = 1;
+                            if (i == 1) MainSingleton.dragon = 2;
+                            if (i == 2) MainSingleton.dragon = 3;
+                            if (i == 3) MainSingleton.dragon = 4;
+                            if (i == 4) MainSingleton.dragon = 5;
+                            Debug.Log(MainSingleton.dragon);
+                        }
                     }
                     Choice.ChoiceD();
                 }
