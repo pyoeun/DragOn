@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 2683954086774067772}
   - component: {fileID: 7169788114586851833}
   - component: {fileID: -76233681681274812}
-  - component: {fileID: -2948779011150176839}
   m_Layer: 0
-  m_Name: Gold
+  m_Name: Skill1
   m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,16 +133,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-2948779011150176839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509132686612781375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000895fcd61e2c8448d3f799ca0ddd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DragonName: Gold

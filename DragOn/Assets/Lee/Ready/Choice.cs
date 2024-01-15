@@ -13,6 +13,7 @@ public class Choice : MonoBehaviour
 
     private void Start()
     {
+        cam.transform.position = new Vector3(0,0,-10);
         selectedObj = null;
     }
     private void Update()

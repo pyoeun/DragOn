@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Choice_Dragon : MonoBehaviour
 {
+    GameObject k;
     [SerializeField]
     GameObject[] dragonArr = new GameObject[5];
     [SerializeField]
@@ -43,6 +44,8 @@ public class Choice_Dragon : MonoBehaviour
                             if (i == 3) MainSingleton.dragon = 4;
                             if (i == 4) MainSingleton.dragon = 5;
                             Debug.Log(MainSingleton.dragon);
+                            Destroy(k);
+                            k = Instantiate(dragonArr[i],this.transform);
                         }
                     }
                     Choice.ChoiceD();
