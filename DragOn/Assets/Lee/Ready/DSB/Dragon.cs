@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class Dragon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    readonly string name;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
