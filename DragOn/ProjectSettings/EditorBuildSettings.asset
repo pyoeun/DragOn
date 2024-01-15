@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ready/Ready_Skill.unity
     guid: eed8d390d76986d4b80f072cdfd993f4
+  - enabled: 1
+    path: Assets/Scenes/Ready/Ready_Bullet.unity
+    guid: 1c541c2125e423a44a7b0642a43e1fcf
   m_configObjects: {}

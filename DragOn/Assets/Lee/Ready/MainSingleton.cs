@@ -6,7 +6,7 @@ public class MainSingleton : MonoBehaviour
 {
     public static int dragon;
     public static int skill;
-    public static int bullet;
+    public static List<int> bullet;
     private static MainSingleton instance = null;
 
     void Awake()

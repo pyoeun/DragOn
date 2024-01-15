@@ -54,7 +54,7 @@ public class Choice_Skill : MonoBehaviour
                 }
                 if (selectedObj.name == "SelectEnd")
                 {
-                    SceneManager.LoadScene("Ready_Skill");
+                    SceneManager.LoadScene("Ready_Bullet");
                 }
             }
         }

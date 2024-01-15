@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Choice_Dragon : MonoBehaviour
 {
+    [SerializeField] Text name;
+    [SerializeField] Text attak;
+    [SerializeField] Text health;
+    [SerializeField] Text moveSpeed;
+    [SerializeField] Text bulletSpeed;
+    [SerializeField] Text attakDelay;
+
     [SerializeField] GameObject[] dragonArr = new GameObject[5];
     [SerializeField] Transform spawnTrans;
     [SerializeField] GameObject cir;
@@ -15,6 +23,8 @@ public class Choice_Dragon : MonoBehaviour
 
     private void Start()
     {
+        name.color = Color.black;
+        name.text = "?";
         cir.SetActive(false);
         float temp = -distance * 2;
         Next = GameObject.Find("SelectEnd");
