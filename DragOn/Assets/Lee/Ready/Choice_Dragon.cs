@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Choice_Dragon : MonoBehaviour
 {
-    [SerializeField]
-    GameObject cir;
-    [SerializeField]
-    GameObject[] dragonArr = new GameObject[5];
-    [SerializeField]
-    Transform spawnTrans;
-    [SerializeField]
-    float distance;
+    [SerializeField] GameObject[] dragonArr = new GameObject[5];
+    [SerializeField] Transform spawnTrans;
+    [SerializeField] GameObject cir;
+    [SerializeField] float distance;
+
+    GameObject Next;
     GameObject k;
+
     private void Start()
     {
         cir.SetActive(false);
         float temp = -distance * 2;
+        Next = GameObject.Find("SelectEnd");
+        Next.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.6f);
         
         for(int i = 0; i < dragonArr.Length; i++)
         {
@@ -49,10 +51,14 @@ public class Choice_Dragon : MonoBehaviour
                             if (i == 4) MainSingleton.dragon = 5;
                             Debug.Log(MainSingleton.dragon);
                             Destroy(k);
-                            k = Instantiate(dragonArr[i],this.transform);
+                            k = Instantiate(dragonArr[i], this.transform);
                         }
                     }
-                    Choice.ChoiceD();
+                    Next.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
+                }
+                if (selectedObj.name == "SelectEnd")
+                {
+                    SceneManager.LoadScene("Ready_Skill");
                 }
             }
         }

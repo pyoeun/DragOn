@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Choice_Skill : MonoBehaviour
 {
-    [SerializeField]
-    GameObject cir;
-    [SerializeField]
-    GameObject[] SkillArr;
-    [SerializeField]
-    Transform spawnTrans;
-    [SerializeField]
-    float distance;
+    [SerializeField] GameObject cir;
+    [SerializeField] GameObject[] SkillArr;
+    [SerializeField] Transform spawnTrans;
+    [SerializeField] float distance;
+    GameObject Next;
     GameObject k;
     private void Start()
     {
         cir.SetActive(false);
-        float temp = -distance + 50;
-
+        float temp = -distance;
+        Next = GameObject.Find("SelectEnd");
+        Next.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.6f);
         for (int i = 0; i < SkillArr.Length; i++)
         {
             GameObject t = Instantiate(SkillArr[i], spawnTrans);
@@ -51,7 +50,11 @@ public class Choice_Skill : MonoBehaviour
                             k = Instantiate(SkillArr[i], this.transform);
                         }
                     }
-                    Choice.ChoiceS();
+                    Next.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
+                }
+                if (selectedObj.name == "SelectEnd")
+                {
+                    SceneManager.LoadScene("Ready_Skill");
                 }
             }
         }

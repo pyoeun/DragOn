@@ -404,10 +404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7101cbd08a93b428b2283a42a27260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBall: {fileID: 0}
-  maxBullet: 11
-  nowBullet: 0
-  bulletLoadDelay: 0.75
+  dragObject: {fileID: 8248543192079507329, guid: 5a7f87b7c27651942820d6eaa0cb2d0a, type: 3}
+  cam: {fileID: 519420031}
+  minSpeed: 6.53
+  maxSpeed: 28.15
 --- !u!4 &1229352491
 Transform:
   m_ObjectHideFlags: 0
