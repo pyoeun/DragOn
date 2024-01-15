@@ -7,13 +7,17 @@ public class Drone_Destruct : MonoBehaviour
     public int health = 100;
     public float speed = 5;
 
+    public SpawnManager spawnManager;
+
     // Update is called once per frame
     void Update()
     {
         this.transform.position += Vector3.left * speed * Time.deltaTime;
 
         if (this.transform.position.x < -12)
+        {
             Destroy(gameObject);
+        }
 
     }
 

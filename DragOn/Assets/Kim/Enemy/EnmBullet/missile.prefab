@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 947410160912445994}
   - component: {fileID: 9196017281367657312}
   m_Layer: 0
-  m_Name: EnmBullet
+  m_Name: missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8668380338588424377}
   - component: {fileID: 3057079509555259784}
   - component: {fileID: -7720657283851341935}
+  - component: {fileID: 1727421152906743291}
   m_Layer: 0
   m_Name: Drone_Armored
   m_TagString: Untagged
@@ -102,6 +103,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1727421152906743291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112623885670753436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9a7cca825184b4c93b8d06069b9619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  speed: 4
 --- !u!1 &8346149763647728366
 GameObject:
   m_ObjectHideFlags: 0
