@@ -7,13 +7,16 @@ public class Drone_Attacking : MonoBehaviour
     public int health = 100;
     public float speed = 3;
 
-    bool up = false;
-
+    bool up;
     public GameObject player;
 
     private void Awake()
     {
-        player.transform.position = new Vector3(-4, 0, 0);
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+            up = false;
+        else
+            up = true;
     }
 
     // Update is called once per frame
@@ -23,21 +26,26 @@ public class Drone_Attacking : MonoBehaviour
         {
             this.transform.position += Vector3.left * speed * Time.deltaTime;
         }
+        else if (this.transform.position.x < player.transform.position.x + 5)
+        {
+            this.transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+
+        if (up)
+        {
+            this.transform.position += Vector3.up * speed * Time.deltaTime;
+            if (this.transform.position.y >= 4)
+                up = false;
+        }
         else
         {
-            if(up)
-            {
-                this.transform.position += Vector3.up * speed * Time.deltaTime;
-                if (this.transform.position.y >= 4)
-                    up = false;
-            }
-            else
-            {
-                this.transform.position += Vector3.down * speed * Time.deltaTime;
-                if (this.transform.position.y <= -4)
-                    up = true;
-            }
+            this.transform.position += Vector3.down * speed * Time.deltaTime;
+            if (this.transform.position.y <= -4)
+                up = true;
         }
+
+
+
 
     }
 

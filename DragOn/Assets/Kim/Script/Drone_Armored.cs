@@ -7,10 +7,15 @@ public class Drone_Armored : MonoBehaviour
     public int health = 100;
     public float speed = 4;
 
+    private void Start()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
