@@ -10,7 +10,6 @@ public class Choice_Dragon : MonoBehaviour
     Transform spawnTrans;
     [SerializeField]
     float distance;
-    Dragon _dragon;
     private void Start()
     {
         float temp = -distance * 2;
@@ -32,14 +31,15 @@ public class Choice_Dragon : MonoBehaviour
             if (hit.collider != null)
             {
                 selectedObj = hit.collider.gameObject;
-            }
-            if(selectedObj.tag == "Dragon")
-            {
-                _dragon = selectedObj.GetComponent<Dragon>();
-                MainSingleton.dragon = _dragon;
-                Choice.ChoiceD();
-
-
+                if (selectedObj.tag == "Dragon")
+                {
+                    for (int i = 0; i < dragonArr.Length; i++)
+                    {
+                        if (selectedObj == dragonArr[i])
+                            MainSingleton.dragon = i + 1;
+                    }
+                    Choice.ChoiceD();
+                }
             }
         }
     }

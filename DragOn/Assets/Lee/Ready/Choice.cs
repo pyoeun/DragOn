@@ -23,35 +23,39 @@ public class Choice : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 0f);
                 if (hit.collider != null)
                 {
-                    GameObject clickObj = hit.collider.gameObject;
-                    selectedObj = clickObj;
+                    selectedObj = hit.collider.gameObject;
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                if (selectedObj.name == "SelectEnd" && D == true)
+                                {
+                                    cam.transform.position = new Vector3(50, 0, -10);
+                                    i++;
+                                }
+                            }
+                            break;
+                        case 1:
+                            {
+                                if (selectedObj.name == "SelectEnd" && S == true)
+                                {
+                                    cam.transform.position = new Vector3(100, 0, -10);
+                                    i++;
+                                }
+                            }
+                            break;
+                        case 2:
+                            {
+                                if (selectedObj.name == "SelectEnd" && B == true)
+                                {
+                                    //¾Àº¯°æ
+                                }
+                            }
+                            break;
+                    }
                 }
             }
-            switch(i)
-            {
-                case 0:
-                    {
-                        if (selectedObj.name == "SelectEnd" && D == true)
-                            cam.transform.position = new Vector3(50, 0, -10);
-                        i++;
-                    }
-                    break;
-                case 1:
-                    {
-                        if (selectedObj.name == "SelectEnd" && S == true)
-                            cam.transform.position = new Vector3(100, 0, -10);
-                        i++;
-                    }
-                    break;
-                case 2:
-                    {
-                        if (selectedObj.name == "SelectEnd" && B == true)
-                        {
-                            //¾Àº¯°æ
-                        }
-                    }
-                    break;
-            }
+            
             
         }
     }

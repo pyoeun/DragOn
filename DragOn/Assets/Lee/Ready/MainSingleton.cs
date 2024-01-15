@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MainSingleton : MonoBehaviour
 {
-    public static Dragon dragon;
-    public static Skill skill;
-    public static Bullet bullet;
+    public static int dragon;
+    public static int skill;
+    public static int bullet;
 
     
 
