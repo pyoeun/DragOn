@@ -2,22 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Drone_Destruct : MonoBehaviour
 {
     public int health = 100;
-    public float speed = 3;
-
-   
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float speed = 5;
 
     // Update is called once per frame
     void Update()
     {
         this.transform.position += Vector3.left * speed * Time.deltaTime;
+
+        if (this.transform.position.x < -12)
+            Destroy(gameObject);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,12 +24,12 @@ public class Enemy : MonoBehaviour
             health -= 30;
             if(health <= 0)
             {
-                gameObject.SetActive(false);
+                //Æø*ÆÄ
+
+
+
+                Destroy(gameObject);
             }
-        }
-        if (collision.gameObject.tag == "Finish")
-        {
-            gameObject.SetActive(false);
         }
     }
 }
