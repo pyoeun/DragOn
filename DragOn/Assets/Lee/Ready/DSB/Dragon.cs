@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dragon
+public class Dragon : MonoBehaviour
 {
-    public string name;
+    readonly string name;
+
 
 }
