@@ -31,6 +31,7 @@ public class Choice : MonoBehaviour
                             cam.transform.position = new Vector3(0, 0, -10);
 
                     }
+                    break;
             }
             
         }
