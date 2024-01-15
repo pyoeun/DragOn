@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Ready/Ready_Dragon.unity
+    guid: 91820d3dedf170e4d84ac4183bed295d
+  - enabled: 1
+    path: Assets/Scenes/Ready/Ready_Skill.unity
+    guid: eed8d390d76986d4b80f072cdfd993f4
   m_configObjects: {}
