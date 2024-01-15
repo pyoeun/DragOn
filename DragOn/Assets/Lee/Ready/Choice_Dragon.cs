@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Choice_Dragon : MonoBehaviour
 {
-    GameObject k;
+    [SerializeField]
+    GameObject cir;
     [SerializeField]
     GameObject[] dragonArr = new GameObject[5];
     [SerializeField]
     Transform spawnTrans;
     [SerializeField]
     float distance;
+    GameObject k;
     private void Start()
     {
+        cir.SetActive(false);
         float temp = -distance * 2;
         
         for(int i = 0; i < dragonArr.Length; i++)
@@ -38,6 +41,7 @@ public class Choice_Dragon : MonoBehaviour
                     {
                         if (selectedObj.GetComponent<Dragon>().DragonName == dragonArr[i].name)
                         {
+                            cir.SetActive(true);
                             if (i == 0) MainSingleton.dragon = 1;
                             if (i == 1) MainSingleton.dragon = 2;
                             if (i == 2) MainSingleton.dragon = 3;

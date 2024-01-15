@@ -5,6 +5,7 @@ using UnityEngine;
 public class Choice : MonoBehaviour
 {
     [SerializeField] GameObject cam;
+    GameObject Next;
     GameObject selectedObj; //선택된 오브젝트
     int i = 0;
     static bool D = false;
@@ -13,6 +14,8 @@ public class Choice : MonoBehaviour
 
     private void Start()
     {
+        Next = GameObject.Find("SelectEnd");
+        Next.GetComponent<Renderer>().material.color = new Color(1,1,1,0.6f);
         cam.transform.position = new Vector3(0,0,-10);
         selectedObj = null;
     }
@@ -29,19 +32,31 @@ public class Choice : MonoBehaviour
                     {
                         case 0:
                             {
-                                if (selectedObj.name == "SelectEnd" && D == true)
+                                if (D == true)
                                 {
-                                    cam.transform.position = new Vector3(50, 0, -10);
-                                    i++;
+                                    Next.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
+                                    if (selectedObj.name == "SelectEnd")
+                                    {
+                                        Next.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.6f);
+                                        Destroy(GameObject.Find("DragonSpawnPos"));
+                                        cam.transform.position = new Vector3(50, 0, -10);
+                                        i++;
+                                    }
                                 }
                             }
                             break;
                         case 1:
                             {
-                                if (selectedObj.name == "SelectEnd" && S == true)
+                                if (S == true)
                                 {
-                                    cam.transform.position = new Vector3(100, 0, -10);
-                                    i++;
+                                    Next.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
+                                    if (selectedObj.name == "SelectEnd")
+                                    {
+                                        Next.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.6f);
+                                        Destroy(GameObject.Find("SkillSpawnPos"));
+                                        cam.transform.position = new Vector3(100, 0, -10);
+                                        i++;
+                                    }
                                 }
                             }
                             break;
