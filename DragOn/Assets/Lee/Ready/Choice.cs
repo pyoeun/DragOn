@@ -7,6 +7,10 @@ public class Choice : MonoBehaviour
     [SerializeField] GameObject cam;
     GameObject selectedObj; //선택된 오브젝트
     int i = 0;
+    static bool D = false;
+    static bool S = false;
+    static bool B = false;
+
     private void Start()
     {
         selectedObj = null;
@@ -22,18 +26,45 @@ public class Choice : MonoBehaviour
                     GameObject clickObj = hit.collider.gameObject;
                     selectedObj = clickObj;
                 }
-            } // 클릭오브젝트
+            }
             switch(i)
             {
                 case 0:
                     {
-                        if (selectedObj.name == "SelectEnd")
-                            cam.transform.position = new Vector3(0, 0, -10);
-
+                        if (selectedObj.name == "SelectEnd" && D == true)
+                            cam.transform.position = new Vector3(50, 0, -10);
+                        i++;
+                    }
+                    break;
+                case 1:
+                    {
+                        if (selectedObj.name == "SelectEnd" && S == true)
+                            cam.transform.position = new Vector3(100, 0, -10);
+                        i++;
+                    }
+                    break;
+                case 2:
+                    {
+                        if (selectedObj.name == "SelectEnd" && B == true)
+                        {
+                            //씬변경
+                        }
                     }
                     break;
             }
             
         }
+    }
+    public static void ChoiceD()
+    {
+        D = true;
+    }
+    public static void ChoiceS()
+    {
+        S = true;
+    }
+    public static void ChoiceB()
+    {
+        B = true;
     }
 }

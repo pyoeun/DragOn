@@ -8,7 +8,7 @@ public class MainSingleton : MonoBehaviour
     public static Skill skill;
     public static Bullet bullet;
 
-
+    
 
 
 }
