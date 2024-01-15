@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8668380338588424377}
   - component: {fileID: 3057079509555259784}
   - component: {fileID: -7720657283851341935}
-  - component: {fileID: 8094569339371652134}
+  - component: {fileID: 7171476200097691773}
   m_Layer: 0
-  m_Name: Drone_Self-destruct
+  m_Name: Drone_Destruct
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8094569339371652134
+--- !u!114 &7171476200097691773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 420b44f7e2e1ba74aa390ff80dad778e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  speed: 3
 --- !u!1 &8346149763647728366
 GameObject:
   m_ObjectHideFlags: 0
