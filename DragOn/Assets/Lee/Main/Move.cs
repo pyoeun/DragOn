@@ -14,5 +14,6 @@ public class Move : MonoBehaviour
         moveX = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         moveY = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         transform.position = new Vector3(transform.position.x + moveX, transform.position.y + moveY);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x,-Xval,Xval),Mathf.Clamp(transform.position.y,-Yval,Yval));
     }
 }
