@@ -13,25 +13,6 @@ public class Move : MonoBehaviour
     {
         moveX = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         moveY = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-        if(transform.position.x > Xval)
-        {
-            if(moveX < 0)
-                transform.position = new Vector3(transform.position.x + moveX, transform.position.y);
-        }
-        if(transform.position.x < -Xval)
-        {
-            if (moveX > 0)
-                transform.position = new Vector3(transform.position.x + moveX, transform.position.y);
-        }
-        if (transform.position.y > Yval)
-        {
-            if (moveY < 0)
-                transform.position = new Vector3(transform.position.x, transform.position.y + moveY);
-        }
-        if (transform.position.y < -Yval)
-        {
-            if (moveY > 0)
-                transform.position = new Vector3(transform.position.x, transform.position.y + moveY);
-        }
+        transform.position = new Vector3(transform.position.x + moveX, transform.position.y + moveY);
     }
 }
