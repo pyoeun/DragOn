@@ -1696,17 +1696,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: SelectEnd
       objectReference: {fileID: 0}
+    - target: {fileID: 7192275461340871602, guid: 70dae32e0eb8c3b49a04aa675da8ccb2, type: 3}
+      propertyPath: m_Size.x
+      value: 3.79
+      objectReference: {fileID: 0}
     - target: {fileID: 7192275461340871603, guid: 70dae32e0eb8c3b49a04aa675da8ccb2, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7192275461340871603, guid: 70dae32e0eb8c3b49a04aa675da8ccb2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192275461340871603, guid: 70dae32e0eb8c3b49a04aa675da8ccb2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.07
+      value: 7.18
       objectReference: {fileID: 0}
     - target: {fileID: 7192275461340871603, guid: 70dae32e0eb8c3b49a04aa675da8ccb2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 7192275461340871603, guid: 70dae32e0eb8c3b49a04aa675da8ccb2, type: 3}
       propertyPath: m_LocalPosition.z
