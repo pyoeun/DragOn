@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ready/Ready_Bullet.unity
     guid: 1c541c2125e423a44a7b0642a43e1fcf
+  - enabled: 1
+    path: Assets/Scenes/Lee.unity
+    guid: e56498cfa532f5d49ab415f09d44faf5
   m_configObjects: {}
