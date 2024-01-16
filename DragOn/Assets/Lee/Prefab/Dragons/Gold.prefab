@@ -120,6 +120,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DragonName: Gold
+  Attack: 0
+  Health: 0
+  MoveSpeed: 0
+  BulletSpeed: 0
+  Delay: 0
+  NameColor: {r: 0.8352942, g: 0.62352943, b: 0.16470589, a: 1}
+  AttackText: '-'
+  HealthText: 
+  MoveSpeedText: +
+  BulletSpeedText: 
+  DelayText: +
+  Special: "\uBC94\uC704\uACF5\uACA9"
 --- !u!61 &2947661835530459399
 BoxCollider2D:
   m_ObjectHideFlags: 0

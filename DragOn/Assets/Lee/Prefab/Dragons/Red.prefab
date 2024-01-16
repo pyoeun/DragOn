@@ -146,3 +146,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DragonName: Red
+  Attack: 0
+  Health: 0
+  MoveSpeed: 0
+  BulletSpeed: 0
+  Delay: 0
+  NameColor: {r: 0.6666667, g: 0.098039225, b: 0.121568635, a: 1}
+  AttackText: 
+  HealthText: 
+  MoveSpeedText: +
+  BulletSpeedText: 
+  DelayText: ++
+  Special: "\uD654\uC5FC \uB3C4\uD2B8\uB370\uBBF8\uC9C0"

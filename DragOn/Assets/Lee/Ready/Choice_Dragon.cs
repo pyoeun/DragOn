@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class Choice_Dragon : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class Choice_Dragon : MonoBehaviour
     [SerializeField] Text moveSpeed;
     [SerializeField] Text bulletSpeed;
     [SerializeField] Text attakDelay;
+    [SerializeField] Text Special;
+    [SerializeField] Text Explanation;
 
     [SerializeField] GameObject[] dragonArr = new GameObject[5];
     [SerializeField] Transform spawnTrans;
@@ -20,9 +24,13 @@ public class Choice_Dragon : MonoBehaviour
 
     GameObject Next;
     GameObject k;
-
+    int p;
+    bool tmp = false;
+    float time;
     private void Start()
     {
+        p = 0;
+        time = 0.0f;
         name.color = Color.black;
         name.text = "?";
         cir.SetActive(false);
@@ -39,6 +47,26 @@ public class Choice_Dragon : MonoBehaviour
     }
     private void Update()
     {
+        time+= Time.deltaTime;
+        if(time > 0.52f)
+        {
+            time = 0.0f;
+            p = (p + 1) % 6;
+        }
+        {
+            if (p == 0)
+                Special.DOColor(new Color(1, 0, 1), 0.5f);
+            if (p == 1)
+                Special.DOColor(new Color(0, 0, 1), 0.5f);
+            if (p == 2)
+                Special.DOColor(new Color(0, 1, 1), 0.5f);
+            if (p == 3)
+                Special.DOColor(new Color(0, 1, 0), 0.5f);
+            if (p == 4)
+                Special.DOColor(new Color(1, 1, 0), 0.5f);
+            if (p == 5)
+                Special.DOColor(new Color(1, 0, 0), 0.5f);
+        }
         if (Input.GetMouseButtonDown(0)) //마우스 클릭시
         {
             GameObject selectedObj = null;
@@ -62,15 +90,29 @@ public class Choice_Dragon : MonoBehaviour
                             Debug.Log(MainSingleton.dragon);
                             Destroy(k);
                             k = Instantiate(dragonArr[i], this.transform);
+                            TextSet(selectedObj.GetComponent<Dragon>());
                         }
                     }
+                    tmp = true;
                     Next.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
                 }
-                if (selectedObj.name == "SelectEnd")
+                if (selectedObj.name == "SelectEnd" && tmp == true)
                 {
                     SceneManager.LoadScene("Ready_Skill");
                 }
             }
         }
+    }
+    void TextSet(Dragon d)
+    {
+        Explanation.text = d.Special;
+        name.text = d.DragonName;
+        name.color = d.NameColor;
+
+        attak.text = d.AttackText;
+        health.text = d.HealthText;
+        moveSpeed.text = d.MoveSpeedText;
+        bulletSpeed.text = d.BulletSpeedText;
+        attakDelay.text = d.DelayText;
     }
 }
