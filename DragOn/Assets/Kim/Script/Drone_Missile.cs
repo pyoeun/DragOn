@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Drone_Attacking : MonoBehaviour
+public class Drone_Missile : MonoBehaviour
 {
-    public GameObject bullet_pre;
     public Transform player;
+    public GameObject bullet_pre;
     public int health;
     public float speed;
-    public float bulletspeed;
-    bool up;
+    bool up = false, move = false;
 
     private void Bullet()
     {
@@ -19,49 +18,45 @@ public class Drone_Attacking : MonoBehaviour
         Bullet.transform.rotation = Quaternion.Euler(0, 0, rotZ);
     }
 
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
-        int rand = Random.Range(0, 2);
-        if (rand == 0)
-            up = false;
-        else
+        if(Random.Range(0, 2) == 0) {
             up = true;
-
-    }
-
-    private void Start()
-    {
-        InvokeRepeating("Bullet", 1, 1.5f);
+        }
+        InvokeRepeating("Bullet", 1, 5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.x > player.transform.position.x + 7)
+        if(transform.position.x > 7)
         {
             this.transform.position += Vector3.left * speed * Time.deltaTime;
+            if(transform.position.x <= 7)
+            {
+                move = true;
+            }
         }
-        else if (this.transform.position.x <= player.transform.position.x + 5)
+        if(move)
         {
-            this.transform.position += Vector3.right * speed * Time.deltaTime;
+            if (up)
+            {
+                this.transform.position += Vector3.up * speed * Time.deltaTime;
+                if (transform.position.y >= 5)
+                {
+                    up = false;
+                }
+            }
+            else
+            {
+                this.transform.position += Vector3.down * speed * Time.deltaTime;
+                if (transform.position.y <= -5)
+                {
+                    up = true;
+                }
+            }
         }
-
-        if (up)
-        {
-            this.transform.position += Vector3.up * speed * Time.deltaTime;
-            if (this.transform.position.y >= 4)
-                up = false;
-        }
-        else
-        {
-            this.transform.position += Vector3.down * speed * Time.deltaTime;
-            if (this.transform.position.y <= -4)
-                up = true;
-        }
-
-
-
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

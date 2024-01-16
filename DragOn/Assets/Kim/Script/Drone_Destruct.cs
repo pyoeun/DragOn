@@ -25,7 +25,7 @@ public class Drone_Destruct : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet")
         {
-            health -= 30;
+            health -= 10;
             if(health <= 0)
             {
                 //Æø*ÆÄ

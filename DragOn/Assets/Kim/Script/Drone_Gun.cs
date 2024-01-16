@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Drone_Attacking : MonoBehaviour
+public class Drone_Gun : MonoBehaviour
 {
     public GameObject bullet_pre;
     public Transform player;
     public int health;
     public float speed;
-    public float bulletspeed;
-    bool up;
 
     private void Bullet()
     {
@@ -19,48 +17,18 @@ public class Drone_Attacking : MonoBehaviour
         Bullet.transform.rotation = Quaternion.Euler(0, 0, rotZ);
     }
 
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
-        int rand = Random.Range(0, 2);
-        if (rand == 0)
-            up = false;
-        else
-            up = true;
-
+        InvokeRepeating("Bullet", 1, 0.25f);
     }
-
-    private void Start()
-    {
-        InvokeRepeating("Bullet", 1, 1.5f);
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.x > player.transform.position.x + 7)
+        if(transform.position.x > 6)
         {
             this.transform.position += Vector3.left * speed * Time.deltaTime;
         }
-        else if (this.transform.position.x <= player.transform.position.x + 5)
-        {
-            this.transform.position += Vector3.right * speed * Time.deltaTime;
-        }
-
-        if (up)
-        {
-            this.transform.position += Vector3.up * speed * Time.deltaTime;
-            if (this.transform.position.y >= 4)
-                up = false;
-        }
-        else
-        {
-            this.transform.position += Vector3.down * speed * Time.deltaTime;
-            if (this.transform.position.y <= -4)
-                up = true;
-        }
-
-
-
 
     }
 
