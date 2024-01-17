@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4700710206943300769}
   - component: {fileID: 342605220524223763}
   - component: {fileID: 8986497229443143422}
-  - component: {fileID: 2123428780655353004}
+  - component: {fileID: 4550591373181370670}
   m_Layer: 0
   m_Name: Red_Ready
   m_TagString: Dragon
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
---- !u!114 &2123428780655353004
+--- !u!114 &4550591373181370670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,16 +145,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000895fcd61e2c8448d3f799ca0ddd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragonName: Red
+  DragonName: Red_Ready
   Attack: 0
   Health: 0
   MoveSpeed: 0
   BulletSpeed: 0
   Delay: 0
-  NameColor: {r: 0.6666667, g: 0.098039225, b: 0.121568635, a: 1}
-  AttackText: 
-  HealthText: 
-  MoveSpeedText: +
-  BulletSpeedText: 
+  NameColor: {r: 0.5943396, g: 0.104663536, b: 0.114556044, a: 1}
+  AttackText: ++
+  HealthText: ++
+  MoveSpeedText: ++
+  BulletSpeedText: ++
   DelayText: ++
-  Special: "\uD654\uC5FC \uB3C4\uD2B8\uB370\uBBF8\uC9C0"
+  Special: 

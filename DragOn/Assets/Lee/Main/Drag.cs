@@ -13,6 +13,9 @@ public class Drag : MonoBehaviour
     GameObject temp1, temp2, temp3, temp4;
     bool isTempReset;
 
+    float time = 1.0f;
+    public float Delay;
+
     //DragPos
     public Camera cam;                      //카메라
     Vector2 click_Pos;                      //클릭 좌표
@@ -31,6 +34,7 @@ public class Drag : MonoBehaviour
     }
     private void Start()
     {
+        time = 1f;
         isTempReset = false;
         temp1 = Instantiate(dragObject, new Vector3(0, 10, 0), Quaternion.identity);
         temp2 = Instantiate(dragObject, new Vector3(0, 10, 0), Quaternion.identity);
@@ -45,6 +49,48 @@ public class Drag : MonoBehaviour
     }
     private void Update()
     {
+        time += Time.deltaTime;
+        if(time > Delay)
+        {
+            if (Input.GetMouseButtonDown(0))                    //Drag start
+            {
+                click_Pos = Input.mousePosition;
+                click_Pos = cam.ScreenToWorldPoint(click_Pos);
+                isDrag = true;
+            }
+            if (isDrag)                                          //Draging
+            {
+                Drag_Pos = Input.mousePosition;
+                Drag_Pos = cam.ScreenToWorldPoint(Drag_Pos);
+                printCircle(click_Pos, Drag_Pos);
+            }
+            if (Input.GetMouseButtonUp(0))                       //Drag end
+            {
+                isDrag = false;
+                isTempReset = false;
+                float Distance = Vector3.Distance(click_Pos, Drag_Pos);
+                if (Distance > 0)
+                {
+                    float Angle = Mathf.Atan2(Drag_Pos.y - click_Pos.y, Drag_Pos.x - click_Pos.x) * Mathf.Rad2Deg;
+                    if (Angle < 0)
+                        Angle = 360 + Angle;
+                    Distance = Mathf.Min(maxSpeed, Distance);
+                    Distance = Mathf.Max(minSpeed, Distance);
+                    if (Angle > 80f && Angle < 280f)
+                    {
+                        gameObject.GetComponent<GameSetting>().Shooting(Angle, (int)Distance);
+                    }
+                }
+                else
+                {
+                    Distance = Mathf.Min(maxSpeed, Distance);
+                    Distance = Mathf.Max(minSpeed, Distance);
+                    Debug.Log(Distance);
+                    gameObject.GetComponent<GameSetting>().Shooting(180, (int)Distance);
+                }
+                time = 0.0f;
+            }
+        }
         if(!isDrag)
         {
             if(!isTempReset)
@@ -53,40 +99,6 @@ public class Drag : MonoBehaviour
                 isTempReset = true;
             }
         }
-        if (Input.GetMouseButtonDown(0))                    //Drag start
-        {
-            click_Pos = Input.mousePosition;
-            click_Pos = cam.ScreenToWorldPoint(click_Pos);
-            isDrag = true;
-        }
-        if(isDrag)                                          //Draging
-        {
-            Drag_Pos = Input.mousePosition;
-            Drag_Pos = cam.ScreenToWorldPoint(Drag_Pos);
-            printCircle(click_Pos, Drag_Pos);
-        }
-        if(Input.GetMouseButtonUp(0))                       //Drag end
-        {
-            isDrag = false;
-            isTempReset = false;
-            float Distance = Vector3.Distance(click_Pos, Drag_Pos);
-            if (Distance > 0)
-            {
-                float Angle = Mathf.Atan2(Drag_Pos.y - click_Pos.y, Drag_Pos.x - click_Pos.x) * Mathf.Rad2Deg;
-                if (Angle < 0)
-                    Angle = 360 + Angle;
-                Distance = Mathf.Min(maxSpeed, Distance);
-                Distance = Mathf.Max(minSpeed, Distance);
-                if(Angle > 80f && Angle < 280f)
-                    shooting.shootBullet(Angle, (int)Distance);
-            }
-            else
-            {
-                Distance = Mathf.Min(maxSpeed, Distance);
-                Distance = Mathf.Max(minSpeed, Distance);
-                Debug.Log(Distance);
-                shooting.shootBullet(180, (int)Distance);
-            }
-        }
+        
     }
 }

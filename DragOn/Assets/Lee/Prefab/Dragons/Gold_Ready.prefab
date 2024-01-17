@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7262156318950379066}
   - component: {fileID: 1082767290352535991}
   - component: {fileID: 390666057538041532}
-  - component: {fileID: 5035597165675759605}
   - component: {fileID: 2947661835530459399}
+  - component: {fileID: 5255093891201660773}
   m_Layer: 0
   m_Name: Gold_Ready
   m_TagString: Dragon
@@ -107,31 +107,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &5035597165675759605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3735250480377645531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000895fcd61e2c8448d3f799ca0ddd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DragonName: Gold
-  Attack: 0
-  Health: 0
-  MoveSpeed: 0
-  BulletSpeed: 0
-  Delay: 0
-  NameColor: {r: 0.8352942, g: 0.62352943, b: 0.16470589, a: 1}
-  AttackText: '-'
-  HealthText: 
-  MoveSpeedText: +
-  BulletSpeedText: 
-  DelayText: +
-  Special: "\uBC94\uC704\uACF5\uACA9"
 --- !u!61 &2947661835530459399
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,3 +133,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &5255093891201660773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3735250480377645531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000895fcd61e2c8448d3f799ca0ddd05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DragonName: Gold_Ready
+  Attack: 0
+  Health: 0
+  MoveSpeed: 0
+  BulletSpeed: 0
+  Delay: 0
+  NameColor: {r: 0.8018868, g: 0.5870964, b: 0.12608278, a: 1}
+  AttackText: ++
+  HealthText: ++
+  MoveSpeedText: ++
+  BulletSpeedText: ++
+  DelayText: ++
+  Special: 
