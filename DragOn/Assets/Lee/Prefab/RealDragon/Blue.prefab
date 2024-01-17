@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DragonName: Blue
   Bullet: {fileID: 2391262523581836100, guid: 65eb301deee5f404391f355bd68d400e, type: 3}
-  Attack: 15
+  Attack: 30
   Health: 4
   MoveSpeed: 10
   BulletSpeed: 0.6
