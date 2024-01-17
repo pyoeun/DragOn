@@ -36,21 +36,28 @@ public class Drag : MonoBehaviour
         temp3.transform.position = new Vector2(Mathf.Lerp(start.x,end.x,0.66f), Mathf.Lerp(start.y, end.y, 0.66f));
         temp4.transform.position = end;
     }
+    void printGuide(float Angle,float radius)
+    {
+        guide4.transform.position = gameObject.GetComponent<shooting>().ShootPoint.transform.position;
+        guide1.transform.position = guide4.transform.position + new Vector3(Mathf.Cos(Angle * Mathf.Deg2Rad), Mathf.Sin(Angle * Mathf.Deg2Rad), 0) * -radius/6;
+        guide3.transform.position = new Vector2(Mathf.Lerp(guide4.transform.position.x, guide1.transform.position.x, 0.33f), Mathf.Lerp(guide4.transform.position.y, guide1.transform.position.y, 0.33f));
+        guide2.transform.position = new Vector2(Mathf.Lerp(guide4.transform.position.x, guide1.transform.position.x, 0.66f), Mathf.Lerp(guide4.transform.position.y, guide1.transform.position.y, 0.66f));
+    }
     private void Start()
     {
         guide1 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
-        guide1.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide1.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         
         guide2 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
-        guide2.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide2.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         guide2.GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 1, 1, 0.8f);
         
         guide3 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
-        guide3.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide3.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         guide3.GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 1, 1, 0.6f);
         
         guide4 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
-        guide4.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide4.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         guide4.GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 1, 1, 0.4f);
         
         time = 1f;
@@ -84,9 +91,15 @@ public class Drag : MonoBehaviour
                 Angle = Mathf.Atan2(Drag_Pos.y - click_Pos.y, Drag_Pos.x - click_Pos.x) * Mathf.Rad2Deg;
                 if (Angle < 0)
                     Angle = 360 + Angle;
+                float Distance = Vector3.Distance(click_Pos, Drag_Pos);
                 Drag_Pos = Input.mousePosition;
                 Drag_Pos = cam.ScreenToWorldPoint(Drag_Pos);
                 printCircle(click_Pos, Drag_Pos);
+                if (Angle > 80f && Angle < 280f)
+                    printGuide(Angle,Distance);
+                else
+                    guide1.transform.position = guide2.transform.position = guide3.transform.position = guide4.transform.position = new Vector3(1, 10, 0);
+                Debug.Log(Angle);
             }
             if (Input.GetMouseButtonUp(0))                       //Drag end
             {
@@ -119,6 +132,7 @@ public class Drag : MonoBehaviour
         {
             if(!isTempReset)
             {
+                guide1.transform.position = guide2.transform.position = guide3.transform.position = guide4.transform.position = new Vector3(1, 10, 0);
                 temp1.transform.position = temp2.transform.position = temp3.transform.position = temp4.transform.position = new Vector3(0, 10, 0);
                 isTempReset = true;
             }

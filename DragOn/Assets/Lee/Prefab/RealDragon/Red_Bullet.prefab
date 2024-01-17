@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4372907801537258300}
   - component: {fileID: 1079508014116563167}
   - component: {fileID: -8573307332985161743}
+  - component: {fileID: -7541850707044656109}
   m_Layer: 0
   m_Name: Red_Bullet
   m_TagString: Bullet
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6dbd157bfd435b04cb720582a05bdbf4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -144,3 +145,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3
+--- !u!114 &-7541850707044656109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276242157104077177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95c7ae784a76194496e55e116f4fd7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
