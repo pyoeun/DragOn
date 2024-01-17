@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Boss_Heli : MonoBehaviour
 {
-    public GameObject bullet_pre;
     public Transform player;
+    public Transform bullet_pos1;
+    public Transform bullet_pos2;
+    public GameObject bullet_pre;
     public int health;
     public float speed;
 
@@ -13,79 +15,189 @@ public class Boss_Heli : MonoBehaviour
     public float maxReroad;
     private float reroadNum;
 
-    private void Bullet()
+    public float maxTime;
+    private float curTime;
+
+    public float maxBulletT;
+    private float curBulletT;
+
+    bool pattern2;
+    bool up;
+
+    bool pattern3;
+
+    bool tmp1 = true;
+    bool tmp2 = false;
+    private void BulletP1()
     {
-
-
+        GameObject bullet1 = Instantiate(bullet_pre, bullet_pos1.position, bullet_pos1.rotation);
+        GameObject bullet2 = Instantiate(bullet_pre, bullet_pos2.position, bullet_pos2.rotation);
+    }
+    private void BulletP2()
+    {
+        GameObject bullet = Instantiate(bullet_pre, transform.position, transform.rotation);
+        bullet.transform.Rotate(new Vector3(0, 0, 180));
     }
     private void Pattern1()
     {
-        float curBT = 0, maxBT = 0.2f;
-        int bulletCount = 0;
-        while(bulletCount < 30)
+        Debug.Log("P1");
+        for (float i = 0; i < 20; ++i)
         {
-            if (curBT > maxBT)
-            {
-                GameObject Bullet1 = Instantiate(bullet_pre, new Vector3(transform.position.x, transform.position.y + 0.5f, 0), transform.rotation);
-                GameObject Bullet2 = Instantiate(bullet_pre, new Vector3(transform.position.x, transform.position.y - 0.5f, 0), transform.rotation);
-                
-            }
-            else
-                curBT += Time.deltaTime;
+            Invoke("BulletP1", (i / 10));
         }
-
-    }
-    private void Pattern2()
-    {
-
-    }
-    private void Pattern3()
-    {
 
     }
     private void Pattern4()
     {
+        Debug.Log("P4");
         switch (Random.Range(0, 4))
         {
             case 1:
                 Pattern1();
                 break;
             case 2:
-                Pattern2();
+                pattern2 = true;
                 break;
             case 3:
-                Pattern3();
+                pattern3 = true;
                 break;
         }
+
         reroading = true;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        bullet_pos1.rotation = Quaternion.Euler(new Vector3(0, 0, 100));
+        bullet_pos2.rotation = Quaternion.Euler(new Vector3(0, 0, 260));
+
+        curTime = 0;
+        curBulletT = 0;
         reroading = false;
-        InvokeRepeating("Pattern1", 0, 4);
+
+        pattern2 = false;
+        up = false;
+
+        pattern3 = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (bullet_pos1.eulerAngles.z < 100)
+            tmp1 = true;
+        if (bullet_pos1.eulerAngles.z > 260)
+            tmp1 = false;
+        if(tmp1)
+            bullet_pos1.Rotate(new Vector3(0, 0, 100 * Time.deltaTime));
+        else
+            bullet_pos1.Rotate(new Vector3(0, 0, 100 * Time.deltaTime * -1));
+
+        if (bullet_pos2.eulerAngles.z < 100)
+            tmp2 = true;
+        if (bullet_pos2.eulerAngles.z > 260)
+            tmp2 = false;
+        if (tmp2)
+            bullet_pos2.Rotate(new Vector3(0, 0, 100 * Time.deltaTime));
+        else
+            bullet_pos2.Rotate(new Vector3(0, 0, 100 * Time.deltaTime * -1));
+
         if (reroading)
         {
-            if (reroadNum < maxReroad)
+            if(transform.position.x < 8)
             {
-                reroadNum += Time.deltaTime;
+                this.transform.position += Vector3.right * speed * Time.deltaTime;
             }
             else
             {
-                reroadNum = 0;
-                reroading = false;
+                if (reroadNum < maxReroad)
+                {
+                    reroadNum += Time.deltaTime;
+                }
+                else
+                {
+                    reroadNum = 0;
+                    reroading = false;
+                }
             }
+            
         }
         else
         {
-            
+            if(pattern2)
+            {
+                Debug.Log("P2");
+                if (up)
+                {
+                    this.transform.position += Vector3.up * speed * Time.deltaTime;
+                    if (transform.position.y > 4)
+                        up = false;
+                }
+                else
+                {
+                    this.transform.position += Vector3.down * speed * Time.deltaTime;
+                    if (transform.position.y < -4)
+                        pattern2 = false;
+                }
+
+                if (curBulletT > maxBulletT)
+                {
+                    BulletP2();
+                    curBulletT = 0;
+                }
+                else
+                {
+                    curBulletT += Time.deltaTime;
+                }
+            }
+            else if(pattern3)
+            {
+                Debug.Log("P3");
+                pattern3 = false;
+            }
+            else
+            {
+                if (transform.position.x > 4)
+                {
+                    this.transform.position += Vector3.left * speed * Time.deltaTime;
+                }
+                if(transform.position.y < 0)
+                {
+                    this.transform.position += Vector3.up * speed * Time.deltaTime;
+                }
+                if (transform.position.y > 0)
+                {
+                    this.transform.position += Vector3.down * speed * Time.deltaTime;
+                }
+
+                if (curTime > maxTime)
+                {
+                    switch (Random.Range(0, 4))
+                    {
+                        case 0:
+                            Pattern1();
+                            break;
+                        case 1:
+                            pattern2 = true;
+                            up = true;
+                            break;
+                        case 2:
+                            pattern3 = true;
+                            break;
+                        case 3:
+                            Pattern4();
+                            reroading = true;
+                            Invoke("Pattern4", 3);
+                            break;
+                    }
+                    curTime = 0;
+                }
+                else
+                {
+                    curTime += Time.deltaTime;
+                }
+            }
         }
     }
 }
