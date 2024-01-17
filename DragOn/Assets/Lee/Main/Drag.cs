@@ -10,9 +10,9 @@ using UnityEngine.UIElements;
 public class Drag : MonoBehaviour
 {
     //Drag animation
-    [SerializeField] GameObject guide;
     [SerializeField] GameObject dragObject;
     GameObject temp1, temp2, temp3, temp4;
+    GameObject guide1, guide2, guide3, guide4;
     bool isTempReset;
 
     public float k = 1;
@@ -38,7 +38,21 @@ public class Drag : MonoBehaviour
     }
     private void Start()
     {
-        guide.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        guide1 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
+        guide1.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        
+        guide2 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
+        guide2.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide2.GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 1, 1, 0.8f);
+        
+        guide3 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
+        guide3.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide3.GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 1, 1, 0.6f);
+        
+        guide4 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
+        guide4.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide4.GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 1, 1, 0.4f);
+        
         time = 1f;
         isTempReset = false;
         temp1 = Instantiate(dragObject, new Vector3(0, 10, 0), Quaternion.identity);
@@ -55,7 +69,7 @@ public class Drag : MonoBehaviour
     private void Update()
     {
 
-        k = time / Delay;
+        k = time / Delay + 0.05f;
         time += Time.deltaTime;
         if(time > Delay)
         {
@@ -70,14 +84,12 @@ public class Drag : MonoBehaviour
                 Angle = Mathf.Atan2(Drag_Pos.y - click_Pos.y, Drag_Pos.x - click_Pos.x) * Mathf.Rad2Deg;
                 if (Angle < 0)
                     Angle = 360 + Angle;
-                guide.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Angle - 180));
                 Drag_Pos = Input.mousePosition;
                 Drag_Pos = cam.ScreenToWorldPoint(Drag_Pos);
                 printCircle(click_Pos, Drag_Pos);
             }
             if (Input.GetMouseButtonUp(0))                       //Drag end
             {
-                guide.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 isDrag = false;
                 isTempReset = false;
                 float Distance = Vector3.Distance(click_Pos, Drag_Pos);
