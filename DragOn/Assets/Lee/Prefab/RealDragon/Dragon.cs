@@ -6,6 +6,7 @@ using UnityEngine;
 public class Dragon : MonoBehaviour
 {
     public string DragonName;
+    public GameObject Bullet;
     [Range(0f,100f)] public int Attack = 0;
     [Range(0f, 100f)] public int Health = 0;
     [Range(0f, 10f)] public float MoveSpeed = 0;

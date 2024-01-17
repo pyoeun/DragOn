@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameSetting : MonoBehaviour
 {
     private Animator ani;
     [SerializeField] GameObject[] Dragons;
+    [SerializeField] GameObject Bullet;
+    [SerializeField] GameObject Bullet_Back;
+
     GameObject Dragon;
     Dragon d;
     float angleTemp;
@@ -16,9 +20,17 @@ public class GameSetting : MonoBehaviour
         ani = Dragon.GetComponent<Animator>();
         d = Dragon.GetComponent<Dragon>();
 
+        Bullet.GetComponent<Image>().sprite = d.Bullet.GetComponent<SpriteRenderer>().sprite;
+        Bullet_Back.GetComponent<Image>().sprite = d.Bullet.GetComponent<SpriteRenderer>().sprite;
+        Bullet_Back.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.2f);
         this.gameObject.GetComponent<Drag>().Delay = d.Delay;
         this.gameObject.GetComponent<Move>().moveSpeed = d.MoveSpeed;
         this.gameObject.GetComponent<shooting>().BulletSpeed = d.BulletSpeed;
+        this.gameObject.GetComponent<shooting>().shootObj = d.Bullet;
+    }
+    private void Update()
+    {
+        Bullet.GetComponent<Image>().fillAmount = gameObject.GetComponent<Drag>().k;
     }
     public void Shooting(float _angle, int _distance)
     {
@@ -30,7 +42,6 @@ public class GameSetting : MonoBehaviour
     {
         gameObject.GetComponent<shooting>().shootBullet(angleTemp, distanceTemp);
     }
-
     public void Hit()
     {
         ani.SetBool("isHit", true);

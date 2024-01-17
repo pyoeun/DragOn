@@ -146,15 +146,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DragonName: Green_Ready
+  Bullet: {fileID: 0}
   Attack: 0
   Health: 0
   MoveSpeed: 0
   BulletSpeed: 0
   Delay: 0
   NameColor: {r: 0.42924526, g: 0.7075472, b: 0.11792446, a: 1}
-  AttackText: ++
+  AttackText: 
   HealthText: ++
-  MoveSpeedText: ++
-  BulletSpeedText: ++
-  DelayText: ++
-  Special: 
+  MoveSpeedText: '-'
+  BulletSpeedText: +
+  DelayText: +
+  Special: "\uB3C5 \uCD94\uAC00\uD0C0(\uC911\uCCA9)"

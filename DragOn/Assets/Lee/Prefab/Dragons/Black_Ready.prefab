@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DragonName: Black_Ready
+  Bullet: {fileID: 0}
   Attack: 0
   Health: 0
   MoveSpeed: 0
@@ -153,8 +154,8 @@ MonoBehaviour:
   Delay: 0
   NameColor: {r: 0, g: 0, b: 0, a: 1}
   AttackText: ++
-  HealthText: ++
-  MoveSpeedText: ++
-  BulletSpeedText: ++
-  DelayText: ++
-  Special: 
+  HealthText: --
+  MoveSpeedText: 
+  BulletSpeedText: +
+  DelayText: '-'
+  Special: X

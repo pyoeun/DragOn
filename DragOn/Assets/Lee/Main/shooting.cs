@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class shooting : MonoBehaviour
 {
-    [SerializeField] GameObject shootObj;
+    public GameObject shootObj;
     [SerializeField] GameObject ShootPoint;
     static float angle;
     static int distance;

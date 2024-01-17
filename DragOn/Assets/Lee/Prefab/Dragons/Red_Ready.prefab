@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DragonName: Red_Ready
+  Bullet: {fileID: 0}
   Attack: 0
   Health: 0
   MoveSpeed: 0
@@ -157,4 +158,4 @@ MonoBehaviour:
   MoveSpeedText: ++
   BulletSpeedText: ++
   DelayText: ++
-  Special: 
+  Special: "\uBD88 \uB3C4\uD2B8\uB370\uBBF8\uC9C0"

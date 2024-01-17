@@ -9,10 +9,12 @@ using UnityEngine.UIElements;
 public class Drag : MonoBehaviour
 {
     //Drag animation
+    Sprite sp;
     [SerializeField] GameObject dragObject;
     GameObject temp1, temp2, temp3, temp4;
     bool isTempReset;
 
+    public float k = 1;
     float time = 1.0f;
     public float Delay;
 
@@ -49,6 +51,7 @@ public class Drag : MonoBehaviour
     }
     private void Update()
     {
+        k = time / Delay;
         time += Time.deltaTime;
         if(time > Delay)
         {
