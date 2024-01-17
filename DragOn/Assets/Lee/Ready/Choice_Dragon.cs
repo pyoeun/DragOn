@@ -105,8 +105,13 @@ public class Choice_Dragon : MonoBehaviour
     }
     void TextSet(Dragon d)
     {
+        string tmp = "";
+        for(int i = 0;i <d.DragonName.Length - 6;i++)
+        {
+            tmp += d.DragonName[i];
+        }
         Explanation.text = d.Special;
-        name.text = d.DragonName;
+        name.text = tmp;
         name.color = d.NameColor;
 
         attak.text = d.AttackText;

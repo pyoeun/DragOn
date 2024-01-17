@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 705959918752526554}
   - component: {fileID: 705959918752526553}
   - component: {fileID: 2293192634886184198}
-  - component: {fileID: 4754745732583336541}
+  - component: {fileID: -4208136873567653150}
+  - component: {fileID: -6542851928471584785}
   m_Layer: 0
-  m_Name: Black_Ready
+  m_Name: Black
   m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 705959918752526552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 705959918752526552}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e2bac8a14c974954f8c1e21a6c564e1a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 79e13baa7ddf46e4785038bf1f2a4ab6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -133,7 +134,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
---- !u!114 &4754745732583336541
+--- !u!50 &-4208136873567653150
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705959918752526552}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-6542851928471584785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,13 +167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000895fcd61e2c8448d3f799ca0ddd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragonName: Black_Ready
-  Attack: 0
-  Health: 0
-  MoveSpeed: 0
-  BulletSpeed: 0
-  Delay: 0
-  NameColor: {r: 0, g: 0, b: 0, a: 1}
+  DragonName: 
+  Attack: 10
+  Health: 3
+  MoveSpeed: 10
+  BulletSpeed: 0.6
+  Delay: 0.5
+  NameColor: {r: 0, g: 0, b: 0, a: 0}
   AttackText: ++
   HealthText: ++
   MoveSpeedText: ++
