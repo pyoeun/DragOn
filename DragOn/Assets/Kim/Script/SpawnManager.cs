@@ -10,12 +10,12 @@ public class SpawnManager : MonoBehaviour
     void SpawnEnemy()
     {
         float randomY = Random.Range(-4, 4);
-        GameObject enemy = (GameObject)Instantiate(Enemys[Random.Range(0, 3)], new Vector3(10, randomY, 0f), Quaternion.identity);
+        GameObject enemy = (GameObject)Instantiate(Enemys[Random.Range(0, 8)], new Vector3(10, randomY, 0f), Quaternion.identity);
     }
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 1, 1);
+        InvokeRepeating("SpawnEnemy", 1, 3);
     }
 
     // Update is called once per frame
