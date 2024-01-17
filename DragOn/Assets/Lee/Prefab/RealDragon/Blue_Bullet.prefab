@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2391262523581836123}
   - component: {fileID: 6356217070746160836}
   - component: {fileID: -9014265531557107646}
+  - component: {fileID: -2320121507890465038}
   m_Layer: 0
   m_Name: Blue_Bullet
   m_TagString: Bullet
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 167656cbe109ef948997c7af578224bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -144,3 +145,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3
+--- !u!114 &-2320121507890465038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391262523581836100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95c7ae784a76194496e55e116f4fd7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0

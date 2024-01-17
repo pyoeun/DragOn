@@ -9,17 +9,28 @@ public class GameSetting : MonoBehaviour
     [SerializeField] GameObject[] Dragons;
     [SerializeField] GameObject Bullet;
     [SerializeField] GameObject Bullet_Back;
+    [SerializeField] GameObject[] Health;
 
     GameObject Dragon;
-    Dragon d;
+    public Dragon d;
     float angleTemp;
     int distanceTemp;
+    int MaxHelth;
     private void Awake()
     {
         Dragon = Instantiate(Dragons[MainSingleton.dragon - 1],transform);
         ani = Dragon.GetComponent<Animator>();
         d = Dragon.GetComponent<Dragon>();
 
+        MaxHelth = d.Health;
+        for(int i = 0; i < MaxHelth; i++)
+        {
+            Health[i].SetActive(false);
+        }
+        for(int i = 0; i < MaxHelth; i++)
+        {
+            Health[i].SetActive(true);
+        }
         Bullet.GetComponent<Image>().sprite = d.Bullet.GetComponent<SpriteRenderer>().sprite;
         Bullet_Back.GetComponent<Image>().sprite = d.Bullet.GetComponent<SpriteRenderer>().sprite;
         Bullet_Back.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.2f);
@@ -32,6 +43,7 @@ public class GameSetting : MonoBehaviour
     {
         Bullet.GetComponent<Image>().fillAmount = gameObject.GetComponent<Drag>().k;
     }
+
     public void Shooting(float _angle, int _distance)
     {
         ani.SetBool("isAttack", true);
