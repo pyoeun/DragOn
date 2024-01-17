@@ -157,5 +157,5 @@ MonoBehaviour:
   HealthText: --
   MoveSpeedText: 
   BulletSpeedText: +
-  DelayText: '-'
+  DelayText: 
   Special: X

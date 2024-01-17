@@ -153,9 +153,9 @@ MonoBehaviour:
   BulletSpeed: 0
   Delay: 0
   NameColor: {r: 0.5943396, g: 0.104663536, b: 0.114556044, a: 1}
-  AttackText: ++
-  HealthText: ++
-  MoveSpeedText: ++
-  BulletSpeedText: ++
-  DelayText: ++
+  AttackText: 
+  HealthText: +
+  MoveSpeedText: 
+  BulletSpeedText: +
+  DelayText: +
   Special: "\uBD88 \uB3C4\uD2B8\uB370\uBBF8\uC9C0"

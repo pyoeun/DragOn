@@ -169,8 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DragonName: 
   Bullet: {fileID: 2391262523581836100, guid: 65eb301deee5f404391f355bd68d400e, type: 3}
-  Attack: 10
-  Health: 3
+  Attack: 15
+  Health: 4
   MoveSpeed: 10
   BulletSpeed: 0.6
   Delay: 0.5

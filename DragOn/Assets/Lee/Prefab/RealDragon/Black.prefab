@@ -169,15 +169,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DragonName: 
   Bullet: {fileID: 1970991285421938471, guid: 1c7489b57870a0a419b0e49c17868c10, type: 3}
-  Attack: 10
-  Health: 3
-  MoveSpeed: 10
-  BulletSpeed: 0.6
+  Attack: 20
+  Health: 1
+  MoveSpeed: 12
+  BulletSpeed: 1.2
   Delay: 0.5
   NameColor: {r: 0, g: 0, b: 0, a: 0}
   AttackText: ++
   HealthText: --
   MoveSpeedText: +
   BulletSpeedText: ++
-  DelayText: '-'
+  DelayText: 
   Special: 

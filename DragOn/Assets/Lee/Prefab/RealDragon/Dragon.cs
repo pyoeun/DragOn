@@ -9,8 +9,8 @@ public class Dragon : MonoBehaviour
     public GameObject Bullet;
     [Range(0f,100f)] public int Attack = 0;
     [Range(0f, 100f)] public int Health = 0;
-    [Range(0f, 10f)] public float MoveSpeed = 0;
-    [Range(0f, 1f)] public float BulletSpeed = 0;
+    [Range(0f, 20f)] public float MoveSpeed = 0;
+    [Range(0f, 10f)] public float BulletSpeed = 0;
     [Range(0f, 3f)] public float Delay = 0;
 
     public Color NameColor;
