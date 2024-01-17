@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3106165022774735463}
   m_Layer: 0
   m_Name: Drone_Gun
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet_pre: {fileID: 2394191127242573025, guid: 8d3ec3ef89963ae4ba0522674f6bb673, type: 3}
   player: {fileID: 4079906895155766012, guid: 7389f92c57419c94fb18af2e44e9e68b, type: 3}
-  health: 40
   speed: 2
 --- !u!114 &3106165022774735463
 MonoBehaviour:
@@ -131,4 +130,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 40

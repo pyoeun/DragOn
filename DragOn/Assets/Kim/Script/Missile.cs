@@ -7,16 +7,15 @@ public class Missile : MonoBehaviour
 
     public float speed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Destroy(gameObject, 5f);
-    }
-
     // Update is called once per frame
     void Update()
     {
         this.transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+
+        if (transform.position.x < -10)
+            Destroy(gameObject);
+        if (transform.position.y < -6f || transform.position.y > 6f)
+            Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 150341178310388441}
   m_Layer: 0
   m_Name: Drone_Maker
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9614b0dd8eee03a45a68cc2d10f2a7be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e6819e65df417d04db9898861c4133af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,22 +119,21 @@ MonoBehaviour:
   drons:
   - {fileID: 112623885670753436, guid: 74c354c3225f03a4b8f96bab5ab70146, type: 3}
   - {fileID: 112623885670753436, guid: 6dc34eb8555ca78429d5cf5b816437b4, type: 3}
-  health: 80
   speed: 2
   rotationSpeed: 100
   sp:
   - {fileID: 21300000, guid: e6819e65df417d04db9898861c4133af, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 898002a6013ec514c872432ff7790e73, type: 3}
+  - {fileID: 21300000, guid: 1482d1e1d14e5e540b52d913ea48b84f, type: 3}
+  - {fileID: 21300000, guid: b92736b2c79d8934596295adbcb00efa, type: 3}
+  - {fileID: 21300000, guid: 3c94a0e12b942b84d9194acf9f8a525e, type: 3}
+  - {fileID: 21300000, guid: 289de3823d75833418ce686c536ef203, type: 3}
+  - {fileID: 21300000, guid: adc81cc540c0b0d42baf4f915515613f, type: 3}
+  - {fileID: 21300000, guid: 60f95a98aa896fd49b628b7a81169d76, type: 3}
+  - {fileID: 21300000, guid: 6c9bd169432ab304fb1b4b268ded76d2, type: 3}
+  - {fileID: 21300000, guid: 73ce0f3d872ad6546bf62cb5fca0907f, type: 3}
+  - {fileID: 21300000, guid: 689af713a98a54a40bb00cd4bcde52b6, type: 3}
+  - {fileID: 21300000, guid: 8f6c7698408d4d94ebf66f5a4c33dbda, type: 3}
 --- !u!114 &150341178310388441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 80
 --- !u!1 &8346149763647728366
 GameObject:
   m_ObjectHideFlags: 0

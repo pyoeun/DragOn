@@ -10,7 +10,6 @@ public class Mini_Heli : MonoBehaviour
 
     public Transform player;
     public GameObject bullet_pre;
-    public int health;
     public float speed;
 
     public int maxBullet;

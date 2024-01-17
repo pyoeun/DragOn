@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2998311402415692693}
   m_Layer: 0
   m_Name: Boss_Plane
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b5da9cc61426b498204ec79f1c0f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 4079906895155766012, guid: 7389f92c57419c94fb18af2e44e9e68b, type: 3}
+  bullet_pre: {fileID: 2394191127242573025, guid: bade19d28add664468ed7c14c18f930e, type: 3}
+  missile_pre: {fileID: 2394191127242573025, guid: 4947444a8cc884f48b95a05940adecee, type: 3}
+  speed: 6
+  maxTime: 3
 --- !u!114 &-2998311402415692693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,4 +115,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 400

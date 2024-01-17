@@ -8,7 +8,6 @@ public class Boss_Heli : MonoBehaviour
     public Transform bullet_pos1;
     public Transform bullet_pos2;
     public GameObject bullet_pre;
-    public int health;
     public float speed;
 
     private bool reroading;
@@ -38,9 +37,15 @@ public class Boss_Heli : MonoBehaviour
         GameObject bullet = Instantiate(bullet_pre, transform.position, transform.rotation);
         bullet.transform.Rotate(new Vector3(0, 0, 180));
     }
+    private void BulletP3()
+    {
+        GameObject Bullet = Instantiate(bullet_pre, transform.position, transform.rotation);
+        Vector2 newPos = player.transform.position - transform.position;
+        float rotZ = Mathf.Atan2(newPos.y, newPos.x) * Mathf.Rad2Deg;
+        Bullet.transform.rotation = Quaternion.Euler(0, 0, rotZ);
+    }
     private void Pattern1()
     {
-        Debug.Log("P1");
         for (float i = 0; i < 20; ++i)
         {
             Invoke("BulletP1", (i / 10));
@@ -49,20 +54,21 @@ public class Boss_Heli : MonoBehaviour
     }
     private void Pattern4()
     {
-        Debug.Log("P4");
-        switch (Random.Range(0, 4))
+        for(int i = 0; i < 2; ++i)
         {
-            case 1:
-                Pattern1();
-                break;
-            case 2:
-                pattern2 = true;
-                break;
-            case 3:
-                pattern3 = true;
-                break;
+            switch (Random.Range(0, 4))
+            {
+                case 1:
+                    Pattern1();
+                    break;
+                case 2:
+                    pattern2 = true;
+                    break;
+                case 3:
+                    pattern3 = true;
+                    break;
+            }
         }
-
         reroading = true;
     }
 
@@ -127,18 +133,22 @@ public class Boss_Heli : MonoBehaviour
         {
             if(pattern2)
             {
-                Debug.Log("P2");
                 if (up)
                 {
                     this.transform.position += Vector3.up * speed * Time.deltaTime;
-                    if (transform.position.y > 4)
+                    if (transform.position.y > 5)
+                    {
                         up = false;
+                        transform.position = new Vector3(4, -5, 0);
+                    }
                 }
                 else
                 {
-                    this.transform.position += Vector3.down * speed * Time.deltaTime;
-                    if (transform.position.y < -4)
+                    this.transform.position += Vector3.up * speed * Time.deltaTime;
+                    if (transform.position.y > 2)
+                    {
                         pattern2 = false;
+                    }
                 }
 
                 if (curBulletT > maxBulletT)
@@ -153,8 +163,21 @@ public class Boss_Heli : MonoBehaviour
             }
             else if(pattern3)
             {
-                Debug.Log("P3");
-                pattern3 = false;
+                this.transform.position += Vector3.left * speed * Time.deltaTime;
+                if (curBulletT > maxBulletT)
+                {
+                    BulletP3();
+                    curBulletT = 0;
+                }
+                else
+                {
+                    curBulletT += Time.deltaTime;
+                }
+                if (transform.position.x < -10)
+                {
+                    transform.position = new Vector3(10, 2, 0);
+                    pattern3 = false;
+                }
             }
             else
             {
@@ -162,17 +185,14 @@ public class Boss_Heli : MonoBehaviour
                 {
                     this.transform.position += Vector3.left * speed * Time.deltaTime;
                 }
-                if(transform.position.y < 0)
+                if(transform.position.y < 2)
                 {
                     this.transform.position += Vector3.up * speed * Time.deltaTime;
-                }
-                if (transform.position.y > 0)
-                {
-                    this.transform.position += Vector3.down * speed * Time.deltaTime;
                 }
 
                 if (curTime > maxTime)
                 {
+                    curTime = 0;
                     switch (Random.Range(0, 4))
                     {
                         case 0:
@@ -187,11 +207,8 @@ public class Boss_Heli : MonoBehaviour
                             break;
                         case 3:
                             Pattern4();
-                            reroading = true;
-                            Invoke("Pattern4", 3);
                             break;
                     }
-                    curTime = 0;
                 }
                 else
                 {

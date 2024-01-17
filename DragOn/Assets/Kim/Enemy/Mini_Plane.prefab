@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2184513705672863002}
   m_Layer: 0
   m_Name: Mini_Plane
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,4 +132,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 100

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3096459530698202296}
   m_Layer: 0
   m_Name: Drone_Destruct
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 420b44f7e2e1ba74aa390ff80dad778e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
   speed: 5
   sp:
   - {fileID: 21300000, guid: dfb5764035c2d334ca91ef74ea5cb2aa, type: 3}
@@ -142,4 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 10

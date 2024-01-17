@@ -6,7 +6,6 @@ public class Boss_Maker : MonoBehaviour
 {
     public GameObject[] drons;
     public GameObject bullet_pre;
-    public int health;
     public float speed;
     public float rotationSpeed;
 
@@ -94,17 +93,5 @@ public class Boss_Maker : MonoBehaviour
             curTime += Time.deltaTime;
         }
 
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Bullet")
-        {
-            health -= 10;
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
     }
 }

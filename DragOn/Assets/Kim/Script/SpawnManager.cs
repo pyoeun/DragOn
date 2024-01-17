@@ -11,7 +11,7 @@ public class SpawnManager : MonoBehaviour
     {
         //Random.Range(0, 8)
         float randomY = Random.Range(-4, 4);
-        GameObject enemy = (GameObject)Instantiate(Enemys[9], new Vector3(10, randomY, 0f), Quaternion.identity);
+        GameObject enemy = (GameObject)Instantiate(Enemys[10], new Vector3(10, randomY, 0f), Quaternion.identity);
     }
     // Start is called before the first frame update
     void Start()

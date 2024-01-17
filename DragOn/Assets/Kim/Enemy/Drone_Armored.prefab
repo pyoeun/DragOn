@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5082834215962902745}
   m_Layer: 0
   m_Name: Drone_Armored
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf9a7cca825184b4c93b8d06069b9619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
   speed: 4
   rotationSpeed: 100
   sp:
@@ -136,4 +135,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 40

@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 8037083939055120719}
   - component: {fileID: 2119816372305875748}
   - component: {fileID: 7963939352571724862}
-  - component: {fileID: 3349541822962782836}
   - component: {fileID: 7072517954448631248}
   m_Layer: 0
   m_Name: Boss_Wall
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,19 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f12f46259a449f40b69da68e07e9035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3349541822962782836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5399493977019603673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 0
 --- !u!114 &7072517954448631248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,4 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 800

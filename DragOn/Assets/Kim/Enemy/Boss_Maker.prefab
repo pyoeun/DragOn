@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1692650917843995661}
   m_Layer: 0
   m_Name: Boss_Maker
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,6 @@ MonoBehaviour:
   - {fileID: 112623885670753436, guid: 74c354c3225f03a4b8f96bab5ab70146, type: 3}
   - {fileID: 112623885670753436, guid: 6dc34eb8555ca78429d5cf5b816437b4, type: 3}
   bullet_pre: {fileID: 2394191127242573025, guid: bade19d28add664468ed7c14c18f930e, type: 3}
-  health: 400
   speed: 4
   rotationSpeed: 100
   maxTime: 3
@@ -119,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 200

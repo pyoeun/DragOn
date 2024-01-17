@@ -20,6 +20,11 @@ public class Guided_missile : MonoBehaviour
         float rotZ = Mathf.Atan2(newPos.y, newPos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
         this.transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+
+        if (transform.position.x < -10)
+            Destroy(gameObject);
+        if (transform.position.y < -6f || transform.position.y > 6f)
+            Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
