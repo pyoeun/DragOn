@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000895fcd61e2c8448d3f799ca0ddd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragonName: 
+  DragonName: Blue
   Bullet: {fileID: 2391262523581836100, guid: 65eb301deee5f404391f355bd68d400e, type: 3}
   Attack: 15
   Health: 4

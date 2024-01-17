@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public string SkillName = null;
+    public float Damage;
+
 }

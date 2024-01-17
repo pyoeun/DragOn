@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Drag : MonoBehaviour
 {
     //Drag animation
-    Sprite sp;
+    [SerializeField] GameObject guide;
     [SerializeField] GameObject dragObject;
     GameObject temp1, temp2, temp3, temp4;
     bool isTempReset;
@@ -17,6 +18,7 @@ public class Drag : MonoBehaviour
     public float k = 1;
     float time = 1.0f;
     public float Delay;
+    float Angle;
 
     //DragPos
     public Camera cam;                      //Ä«¸Þ¶ó
@@ -36,6 +38,7 @@ public class Drag : MonoBehaviour
     }
     private void Start()
     {
+        guide.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         time = 1f;
         isTempReset = false;
         temp1 = Instantiate(dragObject, new Vector3(0, 10, 0), Quaternion.identity);
@@ -51,6 +54,7 @@ public class Drag : MonoBehaviour
     }
     private void Update()
     {
+
         k = time / Delay;
         time += Time.deltaTime;
         if(time > Delay)
@@ -63,18 +67,23 @@ public class Drag : MonoBehaviour
             }
             if (isDrag)                                          //Draging
             {
+                Angle = Mathf.Atan2(Drag_Pos.y - click_Pos.y, Drag_Pos.x - click_Pos.x) * Mathf.Rad2Deg;
+                if (Angle < 0)
+                    Angle = 360 + Angle;
+                guide.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Angle - 180));
                 Drag_Pos = Input.mousePosition;
                 Drag_Pos = cam.ScreenToWorldPoint(Drag_Pos);
                 printCircle(click_Pos, Drag_Pos);
             }
             if (Input.GetMouseButtonUp(0))                       //Drag end
             {
+                guide.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 isDrag = false;
                 isTempReset = false;
                 float Distance = Vector3.Distance(click_Pos, Drag_Pos);
                 if (Distance > 0)
                 {
-                    float Angle = Mathf.Atan2(Drag_Pos.y - click_Pos.y, Drag_Pos.x - click_Pos.x) * Mathf.Rad2Deg;
+                    Angle = Mathf.Atan2(Drag_Pos.y - click_Pos.y, Drag_Pos.x - click_Pos.x) * Mathf.Rad2Deg;
                     if (Angle < 0)
                         Angle = 360 + Angle;
                     Distance = Mathf.Min(maxSpeed, Distance);
@@ -102,6 +111,5 @@ public class Drag : MonoBehaviour
                 isTempReset = true;
             }
         }
-        
     }
 }
