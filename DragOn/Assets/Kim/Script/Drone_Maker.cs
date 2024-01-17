@@ -5,13 +5,14 @@ using UnityEngine;
 public class Drone_Maker : MonoBehaviour
 {
     public GameObject[] drons;
-    public int health = 150;
-    public float speed = 3;
-    public float rotationSpeed = 100f;
+    public int health;
+    public float speed;
+    public float rotationSpeed;
+
+    private bool move;
 
     void SpawnEnemy()
     {
-        float randomY = Random.Range(-4, 4);
         GameObject enemy = (GameObject)Instantiate(drons[Random.Range(0, 2)], new Vector3(transform.position.x - 1, transform.position.y, 0f), Quaternion.identity);
     }
 
@@ -19,17 +20,24 @@ public class Drone_Maker : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnEnemy", 1, 3);
+        move = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
-
-        if (this.transform.position.x > 10 || this.transform.position.x < 0 || this.transform.position.y > 4.5f || this.transform.position.y < -4.5f)
+        transform.Translate(new Vector3(-1 * speed * Time.deltaTime, 0, 0));
+        if (transform.position.x < 9)
         {
-            this.transform.Translate(new Vector3(-1 * speed * Time.deltaTime, 0, 0));
-            transform.Rotate(new Vector3(0, 0, Random.Range(100, 200) * rotationSpeed * Time.deltaTime));
+            move = true;
+        }
+        if (move)
+        {
+            if (transform.position.x > 9 || transform.position.x < 1 || transform.position.y > 4.5f || transform.position.y < -4.5f)
+            {
+                transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+                transform.Rotate(new Vector3(0, 0, Random.Range(100, 200) * rotationSpeed * Time.deltaTime));
+            }
         }
     }
 
