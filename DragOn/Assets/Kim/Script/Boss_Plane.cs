@@ -39,19 +39,19 @@ public class Boss_Plane : MonoBehaviour
     private void BulletP4()
     {
         GameObject enemy1 = (GameObject)Instantiate(
-                missile_pre, new Vector3(transform.position.x - 1, transform.position.y + Random.Range(-4.0f, 4.0f), 0f), Quaternion.identity);
+                missile_pre, new Vector3(transform.position.x - 1, transform.position.y + Random.Range(-5.0f, 5.0f), 0f), Quaternion.identity);
         enemy1.transform.Rotate(new Vector3(0, 0, 180));
         GameObject enemy2 = (GameObject)Instantiate(
-                missile_pre, new Vector3(transform.position.x - 1, transform.position.y + Random.Range(-4.0f, 4.0f), 0f), Quaternion.identity);
+                missile_pre, new Vector3(transform.position.x - 1, transform.position.y + Random.Range(-5.0f, 5.0f), 0f), Quaternion.identity);
         enemy2.transform.Rotate(new Vector3(0, 0, 180));
         GameObject enemy3 = (GameObject)Instantiate(
-                missile_pre, new Vector3(transform.position.x - 1, transform.position.y + Random.Range(-4.0f, 4.0f), 0f), Quaternion.identity);
+                missile_pre, new Vector3(transform.position.x - 1, transform.position.y + Random.Range(-5.0f, 5.0f), 0f), Quaternion.identity);
         enemy3.transform.Rotate(new Vector3(0, 0, 180));
         GameObject enemy4 = (GameObject)Instantiate(
-                missile_pre, new Vector3(transform.position.x - 1, transform.position.y + Random.Range(-4.0f, 4.0f), 0f), Quaternion.identity);
+                missile_pre, new Vector3(transform.position.x - 1, transform.position.y + Random.Range(-5.0f, 5.0f), 0f), Quaternion.identity);
         enemy4.transform.Rotate(new Vector3(0, 0, 180));
         GameObject enemy5 = (GameObject)Instantiate(
-                missile_pre, new Vector3(transform.position.x - 1, transform.position.y + Random.Range(-4.0f, 4.0f), 0f), Quaternion.identity);
+                missile_pre, new Vector3(transform.position.x - 1, transform.position.y + Random.Range(-5.0f, 5.0f), 0f), Quaternion.identity);
         enemy5.transform.Rotate(new Vector3(0, 0, 180));
     }
     private void Pattern1()
@@ -62,7 +62,7 @@ public class Boss_Plane : MonoBehaviour
     private void Pattern3()
     {
         for (float i = 1; i < 5; ++i)
-            Invoke("BulletP3", 1 + (i / 10));
+            Invoke("BulletP3", 1 + (i / 5));
     }
     private void Pattern4()
     {
@@ -105,16 +105,15 @@ public class Boss_Plane : MonoBehaviour
         }
         else if (pattern3)
         {
-            Debug.Log("bb");
             if (pattern3Move)
             {
                 if(pattern3Left)
                 {
-                    transform.position += Vector3.left * speed * Time.deltaTime;
+                    transform.position += Vector3.left * 2 * speed * Time.deltaTime;
                 }
                 else
                 {
-                    transform.position += Vector3.right * speed * Time.deltaTime;
+                    transform.position += Vector3.right * 2 * speed * Time.deltaTime;
                 }
                 if (transform.position.x > 10 || transform.position.x < -10)
                 {
@@ -189,7 +188,12 @@ public class Boss_Plane : MonoBehaviour
                 switch (Random.Range(0, 4))
                 {
                     case 0:
-                        Pattern1();
+                        Invoke("Pattern1", 0f);
+                        Invoke("Pattern1", 1f);
+                        Invoke("Pattern1", 2f);
+                        Invoke("Pattern1", 3f);
+                        Invoke("Pattern1", 4f);
+                        curTime -= 4;
                         break;
                     case 1:
                         pattern2 = true;
