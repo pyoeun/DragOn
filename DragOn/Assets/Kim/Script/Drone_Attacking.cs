@@ -8,8 +8,13 @@ public class Drone_Attacking : MonoBehaviour
     public Transform player;
     public int health;
     public float speed;
-    public float bulletspeed;
     bool up;
+
+    private float spTime;
+
+    private int spCount;
+    SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite[] sp;
 
     private void Bullet()
     {
@@ -17,6 +22,7 @@ public class Drone_Attacking : MonoBehaviour
         Vector2 newPos = player.transform.position - transform.position;
         float rotZ = Mathf.Atan2(newPos.y, newPos.x) * Mathf.Rad2Deg;
         Bullet.transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        Bullet.transform.position = new Vector3(Bullet.transform.position.x, Bullet.transform.position.y - 0.25f, 0);
     }
 
     private void Awake()
@@ -31,12 +37,27 @@ public class Drone_Attacking : MonoBehaviour
 
     private void Start()
     {
+        spTime = 0.0f;
+        spCount = 0;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         InvokeRepeating("Bullet", 1, 1.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(spTime > 0.1f)
+        {
+            spriteRenderer.sprite = sp[spCount];
+            spCount++;
+            spCount %= sp.Length;
+            spTime = 0;
+        }
+        else
+        {
+            spTime += Time.deltaTime;
+        }
+
         if (this.transform.position.x > player.transform.position.x + 7)
         {
             this.transform.position += Vector3.left * speed * Time.deltaTime;
