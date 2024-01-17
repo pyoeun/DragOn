@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Choice_Skill : MonoBehaviour
 {
+    [SerializeField] Text skillName;
+    [SerializeField] Text skillsul;
+    [SerializeField] Text skillDel;
+
+
     [SerializeField] GameObject cir;
     [SerializeField] GameObject[] SkillArr;
     [SerializeField] Transform spawnTrans;
@@ -48,13 +54,16 @@ public class Choice_Skill : MonoBehaviour
                             Debug.Log(MainSingleton.skill);
                             Destroy(k);
                             k = Instantiate(SkillArr[i], this.transform);
+                            skillName.text = selectedObj.GetComponent<Skill>().SkillName;
+                            skillsul.text = selectedObj.GetComponent<Skill>().SkillText;
+                            skillDel.text = selectedObj.GetComponent<Skill>().SkillCool;
                         }
                     }
                     Next.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
                 }
                 if (selectedObj.name == "SelectEnd")
                 {
-                    SceneManager.LoadScene("Lee");
+                    SceneManager.LoadScene("Main");
                 }
             }
         }

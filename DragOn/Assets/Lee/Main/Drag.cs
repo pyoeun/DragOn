@@ -46,18 +46,18 @@ public class Drag : MonoBehaviour
     private void Start()
     {
         guide1 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
-        guide1.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide1.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         
         guide2 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
-        guide2.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide2.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         guide2.GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 1, 1, 0.8f);
         
         guide3 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
-        guide3.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide3.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         guide3.GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 1, 1, 0.6f);
         
         guide4 =Instantiate(dragObject,new Vector3(0,10,0),Quaternion.identity);
-        guide4.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        guide4.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         guide4.GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 1, 1, 0.4f);
         
         time = 1f;
