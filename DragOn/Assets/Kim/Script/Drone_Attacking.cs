@@ -6,12 +6,10 @@ public class Drone_Attacking : MonoBehaviour
 {
     public GameObject bullet_pre;
     public Transform player;
-    public int health;
     public float speed;
     bool up;
 
     private float spTime;
-
     private int spCount;
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite[] sp;
@@ -85,15 +83,4 @@ public class Drone_Attacking : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Bullet")
-        {
-            health -= 10;
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
 }

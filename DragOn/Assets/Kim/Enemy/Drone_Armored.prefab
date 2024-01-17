@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3057079509555259784}
   - component: {fileID: -7720657283851341935}
   - component: {fileID: 1727421152906743291}
+  - component: {fileID: 5082834215962902745}
   m_Layer: 0
   m_Name: Drone_Armored
   m_TagString: Untagged
@@ -30,8 +31,7 @@ Transform:
   m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5558567270763555262}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 759bc7500ac92bd44bd18f92455bb4c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,34 +118,22 @@ MonoBehaviour:
   health: 40
   speed: 4
   rotationSpeed: 100
---- !u!1 &8346149763647728366
-GameObject:
+  sp:
+  - {fileID: 21300000, guid: 759bc7500ac92bd44bd18f92455bb4c7, type: 3}
+  - {fileID: 21300000, guid: e58a4b43cfd9dad49bc29b05869874bb, type: 3}
+  - {fileID: 21300000, guid: e18f710732f4f0740bd46dac1ecd6a79, type: 3}
+  - {fileID: 21300000, guid: b2d712bc7debffb4ba2a279cf8b4fcc7, type: 3}
+  - {fileID: 21300000, guid: 0180d917dec37c344a66c9417b609e4b, type: 3}
+--- !u!114 &5082834215962902745
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5558567270763555262}
-  m_Layer: 0
-  m_Name: EnemyPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5558567270763555262
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8346149763647728366}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8668380338588424377}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 112623885670753436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0

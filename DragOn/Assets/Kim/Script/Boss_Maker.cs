@@ -73,17 +73,17 @@ public class Boss_Maker : MonoBehaviour
         {
             switch (Random.Range(0, 3))
             {
-                case 1:
+                case 0:
                     Invoke("Pattern1", 0);
                     Invoke("Pattern1", 2);
                     Invoke("Pattern1", 4);
                     curTime = -4;
                     break;
-                case 2:
+                case 1:
                     Pattern2();
                     curTime = 0;
                     break;
-                case 3:
+                case 2:
                     Pattern3();
                     curTime = 0;
                     break;

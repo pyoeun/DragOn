@@ -5,11 +5,15 @@ using UnityEngine;
 public class Drone_Maker : MonoBehaviour
 {
     public GameObject[] drons;
-    public int health;
     public float speed;
     public float rotationSpeed;
 
     private bool move;
+
+    private float spTime;
+    private int spCount;
+    SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite[] sp;
 
     void SpawnEnemy()
     {
@@ -19,6 +23,9 @@ public class Drone_Maker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spTime = 0.0f;
+        spCount = 0;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         InvokeRepeating("SpawnEnemy", 1, 3);
         move = false;
     }
@@ -26,6 +33,18 @@ public class Drone_Maker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (spTime > 0.1f)
+        {
+            spriteRenderer.sprite = sp[spCount];
+            spCount++;
+            spCount %= sp.Length;
+            spTime = 0;
+        }
+        else
+        {
+            spTime += Time.deltaTime;
+        }
+
         transform.Translate(new Vector3(-1 * speed * Time.deltaTime, 0, 0));
         if (transform.position.x < 9)
         {
@@ -37,18 +56,6 @@ public class Drone_Maker : MonoBehaviour
             {
                 transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
                 transform.Rotate(new Vector3(0, 0, Random.Range(100, 200) * rotationSpeed * Time.deltaTime));
-            }
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Bullet")
-        {
-            health -= 10;
-            if (health <= 0)
-            {
-                Destroy(gameObject);
             }
         }
     }

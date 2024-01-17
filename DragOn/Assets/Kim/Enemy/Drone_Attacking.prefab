@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3057079509555259784}
   - component: {fileID: -7720657283851341935}
   - component: {fileID: 2008441526790326394}
+  - component: {fileID: 8826036783761890529}
   m_Layer: 0
   m_Name: Drone_Attacking
   m_TagString: Untagged
@@ -118,7 +119,6 @@ MonoBehaviour:
   player: {fileID: 4079906895155766012, guid: 7389f92c57419c94fb18af2e44e9e68b, type: 3}
   health: 20
   speed: 3
-  bulletspeed: 0
   sp:
   - {fileID: 21300000, guid: e4366ce7bd5725040b07a14c344453c6, type: 3}
   - {fileID: 21300000, guid: 5fa7dae280962c744b03feea7e000e88, type: 3}
@@ -128,3 +128,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1d877503762bbff46ad6ab9e2fa4a541, type: 3}
   - {fileID: 21300000, guid: b7736facb3088084083e46579df079d0, type: 3}
   - {fileID: 21300000, guid: b9b43f7e0692a274385351e6d60ec87a, type: 3}
+--- !u!114 &8826036783761890529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112623885670753436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0

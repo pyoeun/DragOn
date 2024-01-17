@@ -6,13 +6,12 @@ public class Drone_Missile : MonoBehaviour
 {
     public Transform player;
     public GameObject bullet_pre;
-    public int health;
     public float speed;
     bool up = false, move = false;
 
     private void Bullet()
     {
-        GameObject Bullet = Instantiate(bullet_pre, transform.position, transform.rotation);
+        GameObject Bullet = Instantiate(bullet_pre,new Vector3(transform.position.x, transform.position.y - 0.3f, 0), transform.rotation);
         Vector2 newPos = player.transform.position - transform.position;
         float rotZ = Mathf.Atan2(newPos.y, newPos.x) * Mathf.Rad2Deg;
         Bullet.transform.rotation = Quaternion.Euler(0, 0, rotZ);
@@ -55,18 +54,6 @@ public class Drone_Missile : MonoBehaviour
                 {
                     up = true;
                 }
-            }
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Bullet")
-        {
-            health -= 10;
-            if (health <= 0)
-            {
-                Destroy(gameObject);
             }
         }
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3057079509555259784}
   - component: {fileID: -7720657283851341935}
   - component: {fileID: 7882247263887304316}
+  - component: {fileID: 2184513705672863002}
   m_Layer: 0
   m_Name: Mini_Plane
   m_TagString: Untagged
@@ -119,3 +120,16 @@ MonoBehaviour:
   health: 100
   speed: 4
   maxtime: 10
+--- !u!114 &2184513705672863002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112623885670753436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0

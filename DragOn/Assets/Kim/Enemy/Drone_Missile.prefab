@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3057079509555259784}
   - component: {fileID: -7720657283851341935}
   - component: {fileID: 7347339632378516773}
+  - component: {fileID: 9018589895803799362}
   m_Layer: 0
   m_Name: Drone_Missile
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8838153dfae7c9248a8da1f8ff815481, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,3 +119,16 @@ MonoBehaviour:
   bullet_pre: {fileID: 2394191127242573025, guid: f3ded81ef8dfa964aaef4453edb0146c, type: 3}
   health: 40
   speed: 3
+--- !u!114 &9018589895803799362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112623885670753436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ea8bdcbb826664fa19ebb7346a901c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0

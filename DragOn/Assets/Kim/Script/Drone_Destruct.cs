@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Drone_Destruct : MonoBehaviour
 {
-    public int health = 100;
-    public float speed = 5;
+    public float speed;
 
     private float spTime;
     private int spCount;
@@ -40,21 +39,5 @@ public class Drone_Destruct : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Bullet")
-        {
-            health -= 10;
-            if(health <= 0)
-            {
-                //Æø*ÆÄ
-
-
-
-                Destroy(gameObject);
-            }
-        }
     }
 }
