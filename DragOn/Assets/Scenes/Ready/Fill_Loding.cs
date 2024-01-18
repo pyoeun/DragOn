@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Fill_Loding : MonoBehaviour
@@ -58,6 +60,10 @@ public class Fill_Loding : MonoBehaviour
             float t = (Time.time - startTime) / dil;
             this.GetComponent<Image>().fillAmount = Mathf.SmoothStep(loding_Temp, loding_Temp + loding_Random, t);
             OhJi.transform.position = new Vector2(Mathf.Lerp(startPos, endPos, this.GetComponent<Image>().fillAmount),Ohji_Y);
+        }
+        if(this.GetComponent<Image>().fillAmount > 0.99f)
+        {
+            SceneManager.LoadScene("Main");
         }
     }
 }
