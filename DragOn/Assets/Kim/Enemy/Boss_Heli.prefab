@@ -107,7 +107,7 @@ MonoBehaviour:
   speed: 3
   maxReroad: 5
   maxTime: 3
-  maxBulletT: 0.3
+  maxBulletT: 0.5
 --- !u!114 &-8883701671097771793
 MonoBehaviour:
   m_ObjectHideFlags: 0

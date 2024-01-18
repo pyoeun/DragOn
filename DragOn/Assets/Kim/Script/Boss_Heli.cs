@@ -10,6 +10,7 @@ public class Boss_Heli : MonoBehaviour
     public GameObject bullet_pre;
     public float speed;
 
+    private int patternCount;
     private bool reroading;
     public float maxReroad;
     private float reroadNum;
@@ -78,6 +79,7 @@ public class Boss_Heli : MonoBehaviour
         bullet_pos1.rotation = Quaternion.Euler(new Vector3(0, 0, 100));
         bullet_pos2.rotation = Quaternion.Euler(new Vector3(0, 0, 260));
 
+        patternCount = 0;
         curTime = 0;
         curBulletT = 0;
         reroading = false;
@@ -139,13 +141,12 @@ public class Boss_Heli : MonoBehaviour
                     if (transform.position.y > 5)
                     {
                         up = false;
-                        transform.position = new Vector3(4, -5, 0);
                     }
                 }
                 else
                 {
-                    this.transform.position += Vector3.up * speed * Time.deltaTime;
-                    if (transform.position.y > 2)
+                    this.transform.position += Vector3.down * speed * Time.deltaTime;
+                    if (transform.position.y < -5)
                     {
                         pattern2 = false;
                     }
@@ -193,7 +194,7 @@ public class Boss_Heli : MonoBehaviour
                 if (curTime > maxTime)
                 {
                     curTime = 0;
-                    switch (Random.Range(0, 4))
+                    switch (Random.Range(0, 3))
                     {
                         case 0:
                             Pattern1();
@@ -205,9 +206,12 @@ public class Boss_Heli : MonoBehaviour
                         case 2:
                             pattern3 = true;
                             break;
-                        case 3:
-                            Pattern4();
-                            break;
+                    }
+                    patternCount++;
+                    if(patternCount >= 2)
+                    {
+                        patternCount = 0;
+                        reroading = true;
                     }
                 }
                 else
