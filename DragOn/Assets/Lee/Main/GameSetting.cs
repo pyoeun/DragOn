@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class GameSetting : MonoBehaviour
 {
@@ -11,15 +12,21 @@ public class GameSetting : MonoBehaviour
     [SerializeField] GameObject Bullet_Back;
     [SerializeField] GameObject[] Health;
 
-    bool Hit = false;
+    float time;
+    float Ttime;
+    public bool hit = false;
     GameObject Dragon;
     public Dragon d;
     float angleTemp;
     int distanceTemp;
     int MaxHelth;
-    int nowHelth;
+    public int nowHelth;
+    bool tmp;
     private void Awake()
     {
+        tmp = false;
+        time = 0.0f;
+        Ttime = 0.0f;
         Dragon = Instantiate(Dragons[MainSingleton.dragon - 1],transform);
         ani = Dragon.GetComponent<Animator>();
         d = Dragon.GetComponent<Dragon>();
@@ -43,18 +50,46 @@ public class GameSetting : MonoBehaviour
     }
     private void Update()
     {
-
+        if(nowHelth > MaxHelth)
+        {
+            nowHelth = MaxHelth;
+        }
+        if (hit)
+        {
+            time += Time.deltaTime;
+            Ttime += Time.deltaTime;
+            if (Ttime > 0.3f)
+            {
+                tmp = !tmp;
+                Ttime = 0.0f;
+            }
+            if (tmp)
+                Dragon.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, 0.6f);
+            else
+                Dragon.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
+            if(time > 2f)
+            {
+                tmp = true;
+                Ttime = 0.0f;
+                time = 0.0f;
+                hit = false;
+                Dragon.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
+            }
+        }
         Bullet.GetComponent<Image>().fillAmount = gameObject.GetComponent<Drag>().k;
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "EnemyBullet")
         {
-            nowHelth--;
-            if (nowHelth <= 0)
-                Die();
-            else
-                Hit();
+            if (!hit)
+            {
+                nowHelth--;
+                if (nowHelth <= 0)
+                    Die();
+                else
+                    Hit();
+            }
         }
     }
     public void Shooting(float _angle, int _distance)

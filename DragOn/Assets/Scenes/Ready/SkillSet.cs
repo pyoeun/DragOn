@@ -17,6 +17,10 @@ public class SkillSet : MonoBehaviour
         Skill.sprite = Skills[MainSingleton.skill - 1].GetComponent<SpriteRenderer>().sprite;
         Skillbackground.sprite = Skills[MainSingleton.skill - 1].GetComponent<SpriteRenderer>().sprite;
         s = Skills[MainSingleton.skill - 1].GetComponent<Skill>();
+        if (MainSingleton.dragon == 4)
+        {
+            s.CoolTime = s.CoolTime * 0.7f;
+        }
     }
     private void Update()
     {
@@ -28,18 +32,19 @@ public class SkillSet : MonoBehaviour
             {
                 if(MainSingleton.skill == 1)
                 {
-
+                    gameObject.GetComponent<GameSetting>().nowHelth += 1;
+                    time = 0.0f;
                 }
                 if (MainSingleton.skill == 2)
                 {
-
+                    time = 0.0f;
                 }
                 if (MainSingleton.skill == 3)
                 {
-
+                    time = 0.0f;
                 }
             }
         }
-        Skill.fillAmount = s.CoolTime / time;
+        Skill.fillAmount = time / s.CoolTime;
     }
 }
