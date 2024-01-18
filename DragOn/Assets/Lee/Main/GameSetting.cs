@@ -11,11 +11,13 @@ public class GameSetting : MonoBehaviour
     [SerializeField] GameObject Bullet_Back;
     [SerializeField] GameObject[] Health;
 
+    bool Hit = false;
     GameObject Dragon;
     public Dragon d;
     float angleTemp;
     int distanceTemp;
     int MaxHelth;
+    int nowHelth;
     private void Awake()
     {
         Dragon = Instantiate(Dragons[MainSingleton.dragon - 1],transform);
@@ -23,7 +25,7 @@ public class GameSetting : MonoBehaviour
         d = Dragon.GetComponent<Dragon>();
 
         MaxHelth = d.Health;
-        for(int i = 0; i < MaxHelth; i++)
+        for(int i = 0; i < 5; i++)
         {
             Health[i].SetActive(false);
         }
@@ -41,9 +43,20 @@ public class GameSetting : MonoBehaviour
     }
     private void Update()
     {
+
         Bullet.GetComponent<Image>().fillAmount = gameObject.GetComponent<Drag>().k;
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "EnemyBullet")
+        {
+            nowHelth--;
+            if (nowHelth <= 0)
+                Die();
+            else
+                Hit();
+        }
+    }
     public void Shooting(float _angle, int _distance)
     {
         ani.SetBool("isAttack", true);

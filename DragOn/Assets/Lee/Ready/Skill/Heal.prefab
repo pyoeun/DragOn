@@ -148,5 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillName: Heal
   SkillText: "\uCCB4\uB825 + 1\n(\uCD5C\uB300\uCCB4\uB825 \uCD08\uACFC \uBD88\uAC00\uB2A5)"
-  SkillCool: 'Delay : 2m'
-  CoolTime: 120
+  SkillCool: 'Delay : 1m'
+  CoolTime: 60
