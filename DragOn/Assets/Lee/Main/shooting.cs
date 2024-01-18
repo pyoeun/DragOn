@@ -27,7 +27,7 @@ public class shooting : MonoBehaviour
             distance = Mathf.Min(distance, 10);
             GameObject bullet = Instantiate(shootObj, ShootPoint.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
             bullet.GetComponent<Rigidbody2D>().velocity = v3RotatedDirection * distance * BulletSpeed * 3;
-            bullet.GetComponent<Bullet>().Damage = this.gameObject.GetComponent<GameSetting>().d.Attack + distance/2;
+            bullet.GetComponent<Bullet>().Damage = this.gameObject.GetComponent<GameSetting>().d.Attack + distance/3;
             Destroy(bullet, 2.0f);
             this.gameObject.GetComponent<GameSetting>().Shoot();
             Shoot = false;

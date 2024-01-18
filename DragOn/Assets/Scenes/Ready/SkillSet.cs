@@ -9,6 +9,7 @@ public class SkillSet : MonoBehaviour
     [SerializeField] Image Skill;
     [SerializeField] Image Skillbackground;
     [SerializeField] GameObject Shuild;
+    [SerializeField] GameObject Laiser;
 
     [SerializeField] GameObject[] Skills;
     Skill s;
@@ -39,11 +40,13 @@ public class SkillSet : MonoBehaviour
                 if (MainSingleton.skill == 2)
                 {
                     time = 0.0f;
+                    Destroy(Instantiate(Laiser, transform.position, Quaternion.identity),0.5f);
                 }
                 if (MainSingleton.skill == 3)
                 {
                     Destroy(Instantiate(Shuild, transform),3);
                     time = 0.0f;
+                    gameObject.GetComponent<GameSetting>().Suild = true;
                 }
             }
         }
