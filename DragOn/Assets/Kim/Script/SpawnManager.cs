@@ -27,6 +27,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Pattern1()
     {
+        curTime = 0;
         maxEnemy = 3;
         bossNum = 8;
         for(int i = 0; i < 10; ++i)
@@ -36,6 +37,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void Pattern2()
     {
+        curTime = 0;
         maxEnemy = 5;
         bossNum = 9;
         for (int i = 0; i < 10; ++i)
@@ -45,6 +47,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void Pattern3()
     {
+        curTime = 0;
         maxTime = 40;
         maxEnemy = 7;
         bossNum = 10;
@@ -55,6 +58,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void Pattern4()
     {
+        curTime = 0;
         maxTime = 40;
         maxEnemy = 8;
         bossNum = 11;
@@ -74,7 +78,10 @@ public class SpawnManager : MonoBehaviour
         boss = false;
         //InvokeRepeating("SpawnEnemy", 1, 3);
         //SpawnEnemy();
-        Pattern1();
+        Invoke("Pattern1", 0);
+        Invoke("Pattern2", 40);
+        Invoke("Pattern3", 80);
+        Invoke("Pattern4", 130);
     }
 
     // Update is called once per frame
