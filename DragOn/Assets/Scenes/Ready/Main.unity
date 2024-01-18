@@ -349,8 +349,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: d3da16df5346eaf4ea370950ccba9fa0, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -708,7 +708,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654352299
 GameObject:
@@ -808,7 +808,7 @@ RectTransform:
   - {fileID: 2134863816}
   - {fileID: 295585462}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -914,6 +914,7 @@ GameObject:
   - component: {fileID: 904529167}
   - component: {fileID: 904529173}
   - component: {fileID: 904529172}
+  - component: {fileID: 904529174}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -977,7 +978,7 @@ Transform:
   m_Children:
   - {fileID: 461575483}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &904529170
 MonoBehaviour:
@@ -1059,6 +1060,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &904529174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904529166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd8eefbfc1c144e9417ee58de91977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Skill: {fileID: 295585463}
+  Skillbackground: {fileID: 2134863817}
+  Skills:
+  - {fileID: 1509132686612781375, guid: dbd08d4fcf496b748a58b01ed7cb1912, type: 3}
+  - {fileID: 1509132686612781375, guid: 5a00c82ef7275fd4a837c9fa452ec3d7, type: 3}
+  - {fileID: 1509132686612781375, guid: a4f8b5cf641f9e64ca4863db765417c8, type: 3}
 --- !u!1 &962661208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,7 +1533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.45882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
