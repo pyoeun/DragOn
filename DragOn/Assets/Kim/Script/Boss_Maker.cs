@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Boss_Maker : MonoBehaviour
 {
+    private float spTime;
+    private int spCount;
+    SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite[] sp;
+
     public GameObject[] drons;
     public GameObject bullet_pre;
     public float speed;
@@ -47,6 +52,10 @@ public class Boss_Maker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spTime = 0.0f;
+        spCount = 0;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
         move = false;
         curTime = 0;
     }
@@ -54,6 +63,18 @@ public class Boss_Maker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (spTime > 0.1f)
+        {
+            spriteRenderer.sprite = sp[spCount];
+            spCount++;
+            spCount %= sp.Length;
+            spTime = 0;
+        }
+        else
+        {
+            spTime += Time.deltaTime;
+        }
+
         transform.Translate(new Vector3(-1 * speed * Time.deltaTime, 0, 0));
         if (transform.position.x < 9)
         {
