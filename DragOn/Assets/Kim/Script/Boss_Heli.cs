@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Boss_Heli : MonoBehaviour
 {
+    private float spTime;
+    private int spCount;
+    SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite[] sp;
+
     public Transform player;
     public Transform bullet_pos1;
     public Transform bullet_pos2;
@@ -53,29 +58,14 @@ public class Boss_Heli : MonoBehaviour
         }
 
     }
-    private void Pattern4()
-    {
-        for(int i = 0; i < 2; ++i)
-        {
-            switch (Random.Range(0, 4))
-            {
-                case 1:
-                    Pattern1();
-                    break;
-                case 2:
-                    pattern2 = true;
-                    break;
-                case 3:
-                    pattern3 = true;
-                    break;
-            }
-        }
-        reroading = true;
-    }
 
     // Start is called before the first frame update
     void Start()
     {
+        spTime = 0.0f;
+        spCount = 0;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
         bullet_pos1.rotation = Quaternion.Euler(new Vector3(0, 0, 100));
         bullet_pos2.rotation = Quaternion.Euler(new Vector3(0, 0, 260));
 
@@ -93,6 +83,18 @@ public class Boss_Heli : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (spTime > 0.05f)
+        {
+            spriteRenderer.sprite = sp[spCount];
+            spCount++;
+            spCount %= sp.Length;
+            spTime = 0;
+        }
+        else
+        {
+            spTime += Time.deltaTime;
+        }
+
         if (bullet_pos1.eulerAngles.z < 100)
             tmp1 = true;
         if (bullet_pos1.eulerAngles.z > 260)
