@@ -8,6 +8,7 @@ public class SkillSet : MonoBehaviour
     float time = 0.0f;
     [SerializeField] Image Skill;
     [SerializeField] Image Skillbackground;
+    [SerializeField] GameObject Shuild;
 
     [SerializeField] GameObject[] Skills;
     Skill s;
@@ -41,6 +42,7 @@ public class SkillSet : MonoBehaviour
                 }
                 if (MainSingleton.skill == 3)
                 {
+                    Destroy(Instantiate(Shuild, transform),3);
                     time = 0.0f;
                 }
             }
