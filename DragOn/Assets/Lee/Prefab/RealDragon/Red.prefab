@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DragonName: 
   Bullet: {fileID: 4276242157104077177, guid: 44d266f30d17743478bc3d90e0ee38be, type: 3}
-  Attack: 25
+  Attack: 20
   Health: 4
   MoveSpeed: 10
   BulletSpeed: 0.8
