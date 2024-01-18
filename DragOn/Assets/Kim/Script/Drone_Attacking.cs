@@ -5,7 +5,6 @@ using UnityEngine;
 public class Drone_Attacking : MonoBehaviour
 {
     public GameObject bullet_pre;
-    public Transform player;
     public float speed;
     bool up;
 
@@ -13,6 +12,20 @@ public class Drone_Attacking : MonoBehaviour
     private int spCount;
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite[] sp;
+
+    GameObject tmp;
+    Transform player;
+    private void Awake()
+    {
+        tmp = GameObject.Find("Dragon");
+        player = tmp.GetComponent<Transform>();
+        
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+            up = false;
+        else
+            up = true;
+    }
 
     private void Bullet()
     {
@@ -23,15 +36,6 @@ public class Drone_Attacking : MonoBehaviour
         Bullet.transform.position = new Vector3(Bullet.transform.position.x, Bullet.transform.position.y - 0.25f, 0);
     }
 
-    private void Awake()
-    {
-        int rand = Random.Range(0, 2);
-        if (rand == 0)
-            up = false;
-        else
-            up = true;
-
-    }
 
     private void Start()
     {

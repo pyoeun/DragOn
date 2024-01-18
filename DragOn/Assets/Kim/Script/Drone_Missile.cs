@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Drone_Missile : MonoBehaviour
 {
-    public Transform player;
     public GameObject bullet_pre;
     public float speed;
     bool up = false, move = false;
 
+    GameObject tmp;
+    Transform player;
+    private void Awake()
+    {
+        tmp = GameObject.Find("Dragon");
+        player = tmp.GetComponent<Transform>();
+    }
     private void Bullet()
     {
         GameObject Bullet = Instantiate(bullet_pre,new Vector3(transform.position.x, transform.position.y - 0.3f, 0), transform.rotation);

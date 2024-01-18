@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Mini_Plane : MonoBehaviour
 {
-    public Transform player;
     public GameObject bullet_pre;
     public int health;
     public float speed;
 
     public float maxtime;
     private float curtime;
+
+    GameObject tmp;
+    Transform player;
+    private void Awake()
+    {
+        tmp = GameObject.Find("Dragon");
+        player = tmp.GetComponent<Transform>();
+    }
 
     private void Bullet()
     {

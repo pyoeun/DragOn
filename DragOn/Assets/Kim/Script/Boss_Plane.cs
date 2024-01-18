@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Boss_Plane : MonoBehaviour
 {
-    public Transform player;
     public GameObject bullet_pre;
     public GameObject missile_pre;
     public float speed;
@@ -22,6 +21,13 @@ public class Boss_Plane : MonoBehaviour
     public bool pattern4;
     public float pattern4Time;
 
+    GameObject tmp;
+    Transform player;
+    private void Awake()
+    {
+        tmp = GameObject.Find("Dragon");
+        player = tmp.GetComponent<Transform>();
+    }
     private void BulletP1()
     {
         GameObject Bullet = Instantiate(bullet_pre, transform.position, transform.rotation);

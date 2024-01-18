@@ -5,7 +5,14 @@ using UnityEngine;
 public class Guided_missile : MonoBehaviour
 {
     public float speed;
-    public Transform player;
+
+    GameObject tmp;
+    Transform player;
+    private void Awake()
+    {
+        tmp = GameObject.Find("Dragon");
+        player = tmp.GetComponent<Transform>();
+    }
 
     // Start is called before the first frame update
     void Start()

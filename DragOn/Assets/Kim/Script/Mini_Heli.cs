@@ -8,7 +8,6 @@ public class Mini_Heli : MonoBehaviour
     [SerializeField] float deg; //각도
     [SerializeField] float objSpeed; //원운동 속도
 
-    public Transform player;
     public GameObject bullet_pre;
     public float speed;
 
@@ -20,6 +19,14 @@ public class Mini_Heli : MonoBehaviour
     private float reroadNum;
 
     bool isBool = true;
+
+    GameObject tmp;
+    Transform player;
+    private void Awake()
+    {
+        tmp = GameObject.Find("Dragon");
+        player = tmp.GetComponent<Transform>();
+    }
 
     private void Bullet()
     {

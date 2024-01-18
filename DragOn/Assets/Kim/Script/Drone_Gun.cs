@@ -5,13 +5,20 @@ using UnityEngine;
 public class Drone_Gun : MonoBehaviour
 {
     public GameObject bullet_pre;
-    public Transform player;
     public float speed;
 
     private float spTime;
     private int spCount;
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite[] sp;
+    
+    GameObject tmp;
+    Transform player;
+    private void Awake()
+    {
+        tmp = GameObject.Find("Dragon");
+        player = tmp.GetComponent<Transform>();
+    }
 
     private void Bullet()
     {

@@ -9,7 +9,8 @@ public class Boss_Heli : MonoBehaviour
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite[] sp;
 
-    public Transform player;
+    GameObject tmp;
+    Transform player;
     public Transform bullet_pos1;
     public Transform bullet_pos2;
     public GameObject bullet_pre;
@@ -33,6 +34,11 @@ public class Boss_Heli : MonoBehaviour
 
     bool tmp1 = true;
     bool tmp2 = false;
+    private void Awake()
+    {
+        tmp = GameObject.Find("Dragon");
+        player = tmp.GetComponent<Transform>();
+    }
     private void BulletP1()
     {
         GameObject bullet1 = Instantiate(bullet_pre, bullet_pos1.position, bullet_pos1.rotation);

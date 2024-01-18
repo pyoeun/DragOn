@@ -5,10 +5,17 @@ using UnityEngine;
 public class Wall_ShootingDown : MonoBehaviour
 {
     public GameObject bullet_pre;
-    public Transform player;
 
     public float maxTime;
     private float curTime;
+
+    GameObject tmp;
+    Transform player;
+    private void Awake()
+    {
+        tmp = GameObject.Find("Dragon");
+        player = tmp.GetComponent<Transform>();
+    }
 
     private void Shot()
     {
