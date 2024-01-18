@@ -50,7 +50,6 @@ public class Fill_Loding : MonoBehaviour
         {
             time = 0.0f;
             loding_Random = Random.Range(loding_Smin, loding_Smax) * 0.01f;
-            Debug.Log(loding_Random);
             loding_Temp = this.GetComponent<Image>().fillAmount;
             loding_Term = false;
             startTime = Time.time;

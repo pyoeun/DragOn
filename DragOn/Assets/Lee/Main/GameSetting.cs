@@ -30,8 +30,8 @@ public class GameSetting : MonoBehaviour
         Dragon = Instantiate(Dragons[MainSingleton.dragon - 1],transform);
         ani = Dragon.GetComponent<Animator>();
         d = Dragon.GetComponent<Dragon>();
-
         MaxHelth = d.Health;
+        nowHelth = d.Health;
         for(int i = 0; i < 5; i++)
         {
             Health[i].SetActive(false);
@@ -67,7 +67,7 @@ public class GameSetting : MonoBehaviour
                 Dragon.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, 0.6f);
             else
                 Dragon.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
-            if(time > 2f)
+            if (time > 2f)
             {
                 tmp = true;
                 Ttime = 0.0f;
@@ -78,17 +78,20 @@ public class GameSetting : MonoBehaviour
         }
         Bullet.GetComponent<Image>().fillAmount = gameObject.GetComponent<Drag>().k;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "EnemyBullet")
+        Debug.Log(nowHelth);
+        if (other.tag == "EnemyBullet" || other.tag == "Enemy")
         {
             if (!hit)
             {
-                nowHelth--;
+                Health[nowHelth].SetActive(false);
+                nowHelth -= 1;
                 if (nowHelth <= 0)
                     Die();
                 else
                     Hit();
+                hit = true;
             }
         }
     }

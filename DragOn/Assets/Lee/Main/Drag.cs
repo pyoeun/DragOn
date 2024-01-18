@@ -99,7 +99,6 @@ public class Drag : MonoBehaviour
                     printGuide(Angle,Distance);
                 else
                     guide1.transform.position = guide2.transform.position = guide3.transform.position = guide4.transform.position = new Vector3(1, 10, 0);
-                Debug.Log(Angle);
             }
             if (Input.GetMouseButtonUp(0))                       //Drag end
             {

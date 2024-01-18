@@ -33,8 +33,4 @@ public class MainSingleton : MonoBehaviour
             return instance;
         }
     }
-    private void Update()
-    {
-        Debug.Log($"{dragon}, {skill}, {bullet}");
-    }
 }
