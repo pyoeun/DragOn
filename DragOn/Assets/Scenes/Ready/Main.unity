@@ -1076,6 +1076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Skill: {fileID: 295585463}
   Skillbackground: {fileID: 2134863817}
+  Shild: {fileID: 4728659066177825505, guid: 61f7fecf126eca346a22d91d2004cc4f, type: 3}
   Skills:
   - {fileID: 1509132686612781375, guid: dbd08d4fcf496b748a58b01ed7cb1912, type: 3}
   - {fileID: 1509132686612781375, guid: 5a00c82ef7275fd4a837c9fa452ec3d7, type: 3}

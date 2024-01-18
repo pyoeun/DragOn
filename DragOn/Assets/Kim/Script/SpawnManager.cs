@@ -74,7 +74,7 @@ public class SpawnManager : MonoBehaviour
         boss = false;
         //InvokeRepeating("SpawnEnemy", 1, 3);
         //SpawnEnemy();
-        Pattern1();
+        Pattern2();
     }
 
     // Update is called once per frame
