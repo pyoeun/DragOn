@@ -12,6 +12,8 @@ public class GameSetting : MonoBehaviour
     [SerializeField] GameObject Bullet_Back;
     [SerializeField] GameObject[] Health;
 
+    public bool Suild = false;
+
     float time;
     float Ttime;
     public bool hit = false;
@@ -22,6 +24,8 @@ public class GameSetting : MonoBehaviour
     int MaxHelth;
     public int nowHelth;
     bool tmp;
+    float sTime = 0.0f;
+    public bool die = false;
     private void Awake()
     {
         tmp = false;
@@ -50,9 +54,15 @@ public class GameSetting : MonoBehaviour
     }
     private void Update()
     {
-        if(nowHelth > MaxHelth)
+
+        if (Suild)
         {
-            nowHelth = MaxHelth;
+            sTime += Time.deltaTime;
+            if (sTime > 3)
+            {
+                sTime = 0.0f;
+                Suild = false;
+            }
         }
         if (hit)
         {
@@ -76,22 +86,39 @@ public class GameSetting : MonoBehaviour
                 Dragon.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
             }
         }
+        if (nowHelth > MaxHelth)
+        {
+            nowHelth = MaxHelth;
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            Health[i].SetActive(false);
+        }
+        for (int i = 0; i < nowHelth; i++)
+        {
+            Health[i].SetActive(true);
+        }
         Bullet.GetComponent<Image>().fillAmount = gameObject.GetComponent<Drag>().k;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(nowHelth);
         if (other.tag == "EnemyBullet" || other.tag == "Enemy")
         {
-            if (!hit)
+            if(!Suild)
             {
-                Health[nowHelth].SetActive(false);
-                nowHelth -= 1;
-                if (nowHelth <= 0)
-                    Die();
-                else
-                    Hit();
-                hit = true;
+                if (!hit)
+                {
+                    nowHelth -= 1;
+                    Debug.Log(nowHelth);
+                    if (nowHelth == 0)
+                    {
+                        Die();
+                        die = true;
+                    }
+                    else
+                        Hit();
+                    hit = true;
+                }
             }
         }
     }

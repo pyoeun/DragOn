@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject Icon;
     public int Damage;
 }

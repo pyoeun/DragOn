@@ -948,6 +948,7 @@ MonoBehaviour:
   - {fileID: 790641062}
   - {fileID: 1343014208}
   - {fileID: 356040129}
+  Suild: 0
   hit: 0
   d: {fileID: 0}
   nowHelth: 0
@@ -1077,6 +1078,7 @@ MonoBehaviour:
   Skill: {fileID: 295585463}
   Skillbackground: {fileID: 2134863817}
   Shuild: {fileID: 4728659066177825505, guid: 61f7fecf126eca346a22d91d2004cc4f, type: 3}
+  Laiser: {fileID: 5489169796527130523, guid: e6790df99b4c33b47b5918f8edcd00d8, type: 3}
   Skills:
   - {fileID: 1509132686612781375, guid: dbd08d4fcf496b748a58b01ed7cb1912, type: 3}
   - {fileID: 1509132686612781375, guid: 5a00c82ef7275fd4a837c9fa452ec3d7, type: 3}
