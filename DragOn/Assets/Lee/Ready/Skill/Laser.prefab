@@ -148,5 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillName: Laser
   SkillText: "\uC77C\uC9C1\uC120\uC0C1\uC758 \uC801 \uC81C\uAC70"
-  SkillCool: 'Delay : 1m'
-  CoolTime: 60
+  SkillCool: 'Delay : 30s'
+  CoolTime: 30

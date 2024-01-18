@@ -23,7 +23,7 @@ public class GameSetting : MonoBehaviour
         d = Dragon.GetComponent<Dragon>();
 
         MaxHelth = d.Health;
-        for(int i = 0; i < MaxHelth; i++)
+        for(int i = 0; i < 5; i++)
         {
             Health[i].SetActive(false);
         }

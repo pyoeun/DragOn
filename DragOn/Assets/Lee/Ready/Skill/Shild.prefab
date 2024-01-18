@@ -147,6 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkillName: Shild
-  SkillText: "\uBB34\uC801\uC2E4\uB4DC \uD68D\uB4DD(4\uCD08)"
-  SkillCool: 'Delay : 1m'
-  CoolTime: 60
+  SkillText: "\uBB34\uC801\uC2E4\uB4DC \uD68D\uB4DD(3\uCD08)"
+  SkillCool: 'Delay : 30s'
+  CoolTime: 30
